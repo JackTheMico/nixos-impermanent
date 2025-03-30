@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, userName, ... }:
+{ pkgs, lib, inputs, userName, system, ... }:
 
 {
   imports =
@@ -16,31 +16,32 @@
   };
   environment.systemPackages = with pkgs; [
     git
-    neovim
+    lazygit
+    # neovim
     yazi
     wget
     ripgrep
     fd
-  ];
+  ] ++ [inputs.jackwy-nvf.packages.${system}.default];
   networking = {
     # hostName = "jackwy-desktop";
     wireless = {enable = false;};
     firewall.enable = false;
     networkmanager = {enable = true;};
     # NOTE: Require clash-verge-rev or another computer which has it.
-    # proxy.default = "http://127.0.0.1:7897";
-    # proxy.noProxy = "127.0.0.1,localhost,.localdomain";
+    proxy.default = "http://192.168.31.222:7897";
+    proxy.noProxy = "127.0.0.1,localhost,.localdomain";
   };
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
     optimise.automatic = true;
 
     # For devenv
-    extraOptions = ''
-      trusted-users = root jackwenyoung
-      extra-substituters = https://devenv.cachix.org
-      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
-    '';
+    # extraOptions = ''
+    #   trusted-users = root jackwenyoung
+    #   extra-substituters = https://devenv.cachix.org
+    #   extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+    # '';
   };
   
   services.openssh.enable = true;
@@ -98,7 +99,8 @@
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -" # create /persist/home owned by root
     "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
-  ]
+    "d /persist/home/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
+  ];
   programs.fuse.userAllowOther = true;
   home-manager = {
     extraSpecialArgs = {inherit inputs userName;};
