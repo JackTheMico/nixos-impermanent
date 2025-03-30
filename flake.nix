@@ -14,13 +14,14 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {nixpkgs, ...} @ inputs:
   let
+    inherit (self) outputs;
     desktop-device = "/dev/disk/by-id/nvme-ZHITAI_TiPro7000_1TB_ZTA21T0KA23433024L";
     userName = "jackwy";
     gitName = "Jack Wenyoung";
