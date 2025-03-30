@@ -31,7 +31,10 @@
         ".ssh"
         ".nixops"
         ".local/share"
-        ".local/state"
+        ".local/state/lazygit"
+        ".local/state/nvf"
+        ".local/state/wireplumber"
+        ".local/state/hyde"
         ".config/lazygit"
         {
           directory = ".local/share/Steam";

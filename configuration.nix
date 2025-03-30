@@ -145,12 +145,6 @@ in {
   # system.stateVersion = "24.11"; # Did you read the comment?
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  # users.users."${userName}" = {
-  #   isNormalUser = true;
-  #   initialPassword = "qwer1234";
-  #   extraGroups = ["wheel" "input" "video"]; # Enable ‘sudo’ for the user.
-  # };
-
   fileSystems."/persist".neededForBoot = true;
   environment.persistence."/persist/system" = {
     hideMounts = true;
@@ -223,7 +217,7 @@ in {
   #! EDIT THESE VALUES (must match users defined above)
   users.users."${userName}" = {
     isNormalUser = true; # Regular user account
-    initialPassword = "qwer1234"; # Default password (CHANGE THIS after first login with passwd)
+    # initialPassword = "qwer1234"; # Default password (CHANGE THIS after first login with passwd)
     extraGroups = [
       "wheel" # For sudo access
       "networkmanager" # For network management
