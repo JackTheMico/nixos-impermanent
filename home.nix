@@ -1,6 +1,9 @@
-{ pkgs, inputs, userName,... }:
-
-{ 
+{
+  pkgs,
+  inputs,
+  userName,
+  ...
+}: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
@@ -17,8 +20,12 @@
       "Videos"
       "VirtualBox VMs"
       ".gnupg"
+      ".config"
+      ".cache"
       ".ssh"
       ".nixops"
+      ".nix-profile"
+      ".nix-defexpr"
       ".local/share/keyrings"
       ".local/share/direnv"
       {
