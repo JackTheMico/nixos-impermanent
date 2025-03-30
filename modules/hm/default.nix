@@ -3,6 +3,7 @@
   userName,
   gitName,
   gitEmail,
+  pkgs,
   ...
 }: {
   imports = [
@@ -29,8 +30,8 @@
         ".gnupg"
         ".ssh"
         ".nixops"
-        ".local/share/keyrings"
-        ".local/share/direnv"
+        ".local/share"
+        ".config/lazygit"
         {
           directory = ".local/share/Steam";
           method = "symlink";

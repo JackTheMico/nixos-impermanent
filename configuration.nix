@@ -118,15 +118,14 @@ in {
       wl-clipboard
       eza
       starship
-    ]
-    ++ [inputs.jackwy-nvf.packages.${system}.default];
+    ] ++ [inputs.jackwy-nvf.packages.${system}.default];
   networking = {
     # hostName = "${userName}-desktop";
     wireless = {enable = false;};
     # firewall.enable = false;
     networkmanager = {enable = true;};
     # NOTE: Require clash-verge-rev or another computer which has it.
-    proxy.default = "http://192.168.31.222:7897";
+    proxy.default = "http://127.0.0.1:7897";
     proxy.noProxy = "127.0.0.1,localhost,.localdomain";
   };
   nix = {
@@ -180,9 +179,16 @@ in {
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -" # create /persist/home owned by root
     "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
-    "d /persist/home/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
+    "d /persist/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
   ];
-  programs.fuse.userAllowOther = true;
+  programs = {
+    fuse.userAllowOther = true;
+    fish.enable = true;
+    clash-verge = {
+      enable = true;
+      autoStart = true;
+    };
+  };
   # IMPORTANT: Customize the following values to match your preferences
   hydenix = {
     enable = true; # Enable the Hydenix module
