@@ -101,7 +101,7 @@
   ]
   programs.fuse.userAllowOther = true;
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs userName;};
     users = {
       "${userName}" = import ./home.nix;
     };
