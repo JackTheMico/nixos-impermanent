@@ -18,11 +18,13 @@
     git
     lazygit
     # neovim
+    neovim
     yazi
     wget
     ripgrep
     fd
-  ] ++ [inputs.jackwy-nvf.packages.${system}.default];
+  ];
+  # ] ++ [inputs.jackwy-nvf.packages.${system}.default];
   networking = {
     # hostName = "jackwy-desktop";
     wireless = {enable = false;};
