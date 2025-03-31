@@ -132,7 +132,7 @@ in {
     settings.experimental-features = ["nix-command" "flakes"];
     optimise.automatic = true;
 
-    # For devenv
+    # NOTE: For devenv, uncomment this later after the installation
     # extraOptions = ''
     #   trusted-users = root jackwenyoung
     #   extra-substituters = https://devenv.cachix.org
@@ -217,7 +217,7 @@ in {
   #! EDIT THESE VALUES (must match users defined above)
   users.users."${userName}" = {
     isNormalUser = true; # Regular user account
-    # initialPassword = "qwer1234"; # Default password (CHANGE THIS after first login with passwd)
+    initialPassword = "qwer1234"; # Default password (CHANGE THIS after first login with passwd)
     extraGroups = [
       "wheel" # For sudo access
       "networkmanager" # For network management
