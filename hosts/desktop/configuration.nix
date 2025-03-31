@@ -31,7 +31,7 @@ in {
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     inputs.hydenix.lib.nixOsModules
-    ./modules/system
+    ../../modules/system
 
     # === GPU-specific configurations ===
 
@@ -64,12 +64,11 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs userName gitName gitEmail;};
+    extraSpecialArgs = {inherit inputs system userName gitName gitEmail;};
     users."${userName}" = {...}: {
       imports = [
         inputs.hydenix.lib.homeModules
-        ./modules/hm
-        # ./home.nix
+        ../../modules/hm
       ];
     };
   };

@@ -46,23 +46,20 @@
     userName = "jackwy";
     gitName = "Jack Wenyoung";
     gitEmail = "dlwxxxdlw@gmail.com";
-    hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
+    hydenixDesktopConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs userName gitName gitEmail system;};
       modules = [
         inputs.disko.nixosModules.default
-        (import ./disko.nix {device = desktop-device;})
-
-        ./configuration.nix
-
-        # inputs.home-manager.nixosModules.default
+        (import ./hosts/desktop/disko.nix {device = desktop-device;})
+        ./hosts/desktop/configuration.nix
         inputs.impermanence.nixosModules.impermanence
       ];
     };
   in {
     nixosConfigurations = {
-      nixos = hydenixConfig;
+      # nixos = hydenixConfig;
 
-      "${userName}-desktop" = hydenixConfig;
+      "${userName}-desktop" = hydenixDesktopConfig;
     };
   };
 }

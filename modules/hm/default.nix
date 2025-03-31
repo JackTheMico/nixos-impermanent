@@ -3,7 +3,6 @@
   userName,
   gitName,
   gitEmail,
-  pkgs,
   ...
 }: {
   imports = [
