@@ -22,6 +22,8 @@
       config.allowUnfree = true;
     };
   };
+  pShadow = "/persist/rootfs/etc/shadow";
+  pShadowParent = "/persist/rootfs/etc";
 in {
   # Set pkgs for hydenix globally, any file that imports pkgs will use this
   nixpkgs.pkgs = pkgs;
@@ -118,7 +120,8 @@ in {
       wl-clipboard
       eza
       starship
-    ] ++ [inputs.jackwy-nvf.packages.${system}.default];
+    ]
+    ++ [inputs.jackwy-nvf.packages.${system}.default];
   networking = {
     # hostName = "${userName}-desktop";
     wireless = {enable = false;};
@@ -172,9 +175,37 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -" # create /persist/home owned by root
+    "d /persist/rootfs/etc/ 0777 root root -" # for persist changed user password
     "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
-    "d /persist/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
+    "d /persist/nixos/ 0700 ${userName} users -" # /persist/nixos owned by that user
   ];
+  # NOTE: https://github.com/nix-community/impermanence/issues/120#issuecomment-2382674299
+  system.activationScripts = {
+    etc_shadow = ''
+      [ -f "/etc/shadow" ] && cp /etc/shadow ${pShadow}
+      [ -f "${pShadow}" ] && cp ${pShadow} /etc/shadow
+    '';
+
+    users.deps = ["etc_shadow"];
+  };
+
+  systemd.services."etc_shadow_persistence" = {
+    enable = true;
+    description = "Persist /etc/shadow on shutdown.";
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.util-linux];
+    unitConfig.defaultDependencies = true;
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      # Service is stopped before shutdown
+      ExecStop = pkgs.writeShellScript "persist_etc_shadow" ''
+        mkdir --parents "${pShadowParent}"
+        cp /etc/shadow ${pShadow}
+      '';
+    };
+  };
+
   programs = {
     fuse.userAllowOther = true;
     fish.enable = true;
