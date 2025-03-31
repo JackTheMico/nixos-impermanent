@@ -36,6 +36,8 @@
         ".local/state/wireplumber"
         ".local/state/hyde"
         ".config/lazygit"
+        ".wakatime"
+        ".mozilla"
         {
           directory = ".local/share/Steam";
           method = "symlink";
