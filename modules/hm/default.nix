@@ -38,6 +38,18 @@
         ".config/lazygit"
         ".wakatime"
         ".mozilla"
+        ".cache/fish"
+        ".cache/mozilla"
+        ".cache/cliphist"
+        ".cache/fontconfig"
+        ".cache/hyde/home"
+        ".cache/hyde/dcols"
+        ".cache/hyde/landing"
+        ".cache/hyde/thumbs"
+        ".cache/kitty"
+        ".cache/nvf"
+        ".cache/swww"
+        ".cache/starship"
         {
           directory = ".local/share/Steam";
           method = "symlink";
