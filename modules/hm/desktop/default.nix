@@ -1,14 +1,23 @@
 {
   inputs,
+  system,
   userName,
   gitName,
   gitEmail,
   ...
-}: {
+}: let
+  moduleNameSpace = "jackwyHMMods";
+  args = {inherit moduleNameSpace inputs system userName gitName gitEmail;};
+in {
   imports = [
     # ./example.nix - add your modules here
     inputs.impermanence.nixosModules.home-manager.impermanence
+    (import ./ssh.nix args)
   ];
+  jackwyHMMods.ssh = {
+    enable = true;
+    githubIdentityFiles = ["/home/${userName}/.ssh/id_nixos_jackwy_desktop"];
+  };
   home = {
     stateVersion = "25.05"; # Please read the comment before changing.
     # stateVersion = "24.11"; # Please read the comment before changing.

@@ -68,7 +68,7 @@ in {
     users."${userName}" = {...}: {
       imports = [
         inputs.hydenix.lib.homeModules
-        ../../modules/hm
+        ../../modules/hm/desktop
       ];
     };
   };
