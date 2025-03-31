@@ -101,7 +101,7 @@
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -" # create /persist/home owned by root
     "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
-    "d /persist/home/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
+    "d /persist/nixos 0700 ${userName} users -" # /persist/home/<user> owned by that user
   ];
   programs.fuse.userAllowOther = true;
   home-manager = {
