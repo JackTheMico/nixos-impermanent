@@ -59,6 +59,7 @@ in {
         ".config/lazygit"
         ".config/sops/age"
         ".config/fcitx5"
+        ".config/hyde"
         ".wakatime"
         ".mozilla"
         ".cache/fish"
