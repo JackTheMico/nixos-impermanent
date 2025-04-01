@@ -8,8 +8,11 @@ with lib; let
 in {
   options.${moduleNameSpace}.ssh = {
     enable = mkEnableOption "User SSH Enable";
-    githubIdentityFiles = mkOption {
-      type = types.listOf (types.str);
+    githubIdentityFile = mkOption {
+      type = types.str;
+    };
+    giteeIdentityFile = mkOption {
+      type = types.str;
     };
   };
 
@@ -20,8 +23,14 @@ in {
         "github" = {
           host = "github.com";
           hostname = "ssh.github.com";
-          identityFile = cfg.githubIdentityFiles;
+          identityFile = cfg.githubIdentityFile;
           proxyCommand = "nc -X connect -x 127.0.0.1:7897 %h %p";
+        };
+        "gitee" = {
+          host = "gitee.com";
+          hostname = "ssh.gitee.com";
+          identityFile = cfg.giteeIdentityFile;
+          # proxyCommand = "nc -X connect -x 127.0.0.1:7897 %h %p";
         };
       };
     };

@@ -16,7 +16,8 @@ in {
   ];
   jackwyHMMods.ssh = {
     enable = true;
-    githubIdentityFiles = ["/home/${userName}/.ssh/id_nixos_jackwy_desktop"];
+    githubIdentityFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
+    giteeIdentityFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
   };
   home = {
     stateVersion = "25.05"; # Please read the comment before changing.
