@@ -19,7 +19,6 @@ in {
     (import ./cmdline args)
     (import ./sops.nix args)
     (import ./qutebrowser.nix args)
-    (import ./tiger.nix args)
   ];
   jackwyHMMods = {
     ssh = {
@@ -30,7 +29,6 @@ in {
     cmdline.enable = true;
     sopsnix.enable = true;
     qutebrowser.enable = true;
-    tiger.enable = true;
   };
   home = {
     stateVersion = "25.05"; # Please read the comment before changing.
@@ -60,6 +58,7 @@ in {
         ".local/state/hyde"
         ".config/lazygit"
         ".config/sops/age"
+        ".config/fcitx5"
         ".wakatime"
         ".mozilla"
         ".cache/fish"
