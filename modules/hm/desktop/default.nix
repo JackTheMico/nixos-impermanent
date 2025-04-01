@@ -12,9 +12,9 @@
   gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
   imports = [
-    # ./example.nix - add your modules here
     inputs.sops-nix.homeManagerModules.sops
-    inputs.impermanence.nixosModules.home-manager.impermanence
+    # inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.impermanence.homeManagerModules.impermanence
     (import ./ssh.nix args)
     (import ./cmdline args)
     (import ./sops.nix args)
@@ -56,7 +56,6 @@ in {
         ".local/state/hyde"
         ".config/lazygit"
         ".config/sops/age"
-        ".config/yazi/plugins"
         ".wakatime"
         ".mozilla"
         ".cache/fish"

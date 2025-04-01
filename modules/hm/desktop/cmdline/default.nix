@@ -44,6 +44,14 @@ in {
       ]
       ++ [pkgs.yazi pkgs.devenv pkgs.lazyjournal];
     programs = {
+      nh = {
+        enable = true;
+        flake = "/persist/nixos";
+        clean = {
+          enable = true;
+          extraArgs = "--keep 5 --keep-since 3d";
+        };
+      };
       git = {
         enable = true;
         userName = gitName;
@@ -221,6 +229,15 @@ in {
         enableBashIntegration = true;
         enableFishIntegration = true;
         enableNushellIntegration = true;
+      };
+    };
+    xdg = {
+      configFile = {
+        "yazi/plugins/full-border.yazi/main.lua".source = ./plugins/full-border.yazi/main.lua;
+        "yazi/plugins/searchjump.yazi/main.lua".source = ./plugins/searchjump.yazi/main.lua;
+        "yazi/plugins/rich-preview.yazi/main.lua".source = ./plugins/rich-preview.yazi/main.lua;
+        "yazi/plugins/ouch.yazi/main.lua".source = ./plugins/ouch.yazi/main.lua;
+        "yazi/plugins/starship.yazi/main.lua".source = ./plugins/starship.yazi/main.lua;
       };
     };
   };
