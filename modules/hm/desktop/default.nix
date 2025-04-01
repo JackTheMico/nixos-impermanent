@@ -55,6 +55,7 @@ in {
         ".local/state/wireplumber"
         ".local/state/hyde"
         ".config/lazygit"
+        ".config/sops"
         ".wakatime"
         ".mozilla"
         ".cache/fish"
