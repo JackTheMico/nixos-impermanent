@@ -14,7 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     sops = {
-      age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+      age.keyFile = "/persist/home/${config.home.homeDirectory}/.config/sops/age/keys.txt";
       defaultSopsFile = "${secretsPath}/secrets.yaml";
       secrets = {
         # "ssh_host_ed25519_key/private/nixos_jackwy_laptop" = {

@@ -55,7 +55,8 @@ in {
         ".local/state/wireplumber"
         ".local/state/hyde"
         ".config/lazygit"
-        ".config/sops"
+        ".config/sops/age"
+        ".config/yazi/plugins"
         ".wakatime"
         ".mozilla"
         ".cache/fish"
@@ -77,6 +78,7 @@ in {
       ];
       files = [
         ".screenrc"
+        ".config/yazi/package.toml"
       ];
       allowOther = true;
     };
