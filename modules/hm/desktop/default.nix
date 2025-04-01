@@ -4,29 +4,39 @@
   userName,
   gitName,
   gitEmail,
+  # pkgs,
   ...
 }: let
   moduleNameSpace = "jackwyHMMods";
   args = {inherit moduleNameSpace inputs system userName gitName gitEmail;};
+  gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
   imports = [
     # ./example.nix - add your modules here
+    inputs.sops-nix.homeManagerModules.sops
     inputs.impermanence.nixosModules.home-manager.impermanence
     (import ./ssh.nix args)
+    (import ./cmdline args)
+    (import ./sops.nix args)
   ];
-  jackwyHMMods.ssh = {
-    enable = true;
-    githubIdentityFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
-    giteeIdentityFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
+  jackwyHMMods = {
+    ssh = {
+      enable = true;
+      githubIdentityFile = gitSSHFile;
+      giteeIdentityFile = gitSSHFile;
+    };
+    cmdline.enable = true;
+    sopsnix.enable = true;
   };
   home = {
     stateVersion = "25.05"; # Please read the comment before changing.
     # stateVersion = "24.11"; # Please read the comment before changing.
+
     # home-manager options go here
-    packages = [
-      # pkgs.vscode - hydenix's vscode version
-      # pkgs.userPkgs.vscode - your personal nixpkgs version
-    ];
+    # packages = with pkgs.userPkgs; [
+    #   # pkgs.vscode - hydenix's vscode version
+    #   # pkgs.userPkgs.vscode - your personal nixpkgs version
+    # ];
     persistence."/persist/home/${userName}" = {
       directories = [
         "codes"
@@ -101,7 +111,7 @@ in {
     };
     gaming.enable = true; # enable gaming module
     git = {
-      enable = true; # enable git module
+      enable = false; # enable git module
       name = gitName; # git user name eg "John Doe"
       email = gitEmail; # git user email eg "john.doe@example.com"
     };
@@ -127,7 +137,7 @@ in {
       zsh.enable = false; # enable zsh shell
       zsh.configText = ""; # zsh config text
       bash.enable = false; # enable bash shell
-      fish.enable = true; # enable fish shell
+      fish.enable = false; # enable fish shell
       pokego.enable = true; # enable Pokemon ASCII art scripts
     };
     social = {
@@ -147,8 +157,12 @@ in {
       enable = true; # enable theme module
       active = "Catppuccin Mocha"; # active theme name
       themes = [
+        "Abyssal-Wave"
         "Catppuccin Mocha"
         "Catppuccin Latte"
+        "Dracula"
+        "One Dark"
+        "Tokyo Night"
       ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
     waybar.enable = true; # enable waybar module

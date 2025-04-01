@@ -149,6 +149,24 @@
         "type": "github"
       }
     },
+    "jackwy-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742538696,
+        "narHash": "sha256-5klmjMQr+9jketqVsQtLDrQ5qlSntBr8eoX1jlQO+ow=",
+        "ref": "main",
+        "rev": "72f5f357db939745a9f49d64b8f24dc85a542505",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/JackTheMico/jackwy-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/JackTheMico/jackwy-secrets.git"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1742255973,
@@ -301,7 +319,10 @@
         "hydenix": "hydenix",
         "impermanence": "impermanence",
         "jackwy-nvf": "jackwy-nvf",
-        "nixpkgs": "nixpkgs_2"
+        "jackwy-secrets": "jackwy-secrets",
+        "nixpkgs": "nixpkgs_2",
+        "sops-nix": "sops-nix",
+        "yazi-flavors": "yazi-flavors"
       }
     },
     "rust-overlay": {
@@ -324,6 +345,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743494586,
+        "narHash": "sha256-Rx3/NJnsl8k7N7Ggd7fuHvJkgsee/U19VgtzSGF5k0w=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "49cffb88f6362d14aa893a6b8326692cff48b962",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },
@@ -354,6 +395,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "yazi-flavors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742023253,
+        "narHash": "sha256-nhIhCMBqr4VSzesplQRF6Ik55b3Ljae0dN+TYbzQb5s=",
+        "owner": "yazi-rs",
+        "repo": "flavors",
+        "rev": "68326b4ca4b5b66da3d4a4cce3050e5e950aade5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yazi-rs",
+        "repo": "flavors",
         "type": "github"
       }
     }

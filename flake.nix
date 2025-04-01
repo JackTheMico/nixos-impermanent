@@ -4,6 +4,17 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # Nixpkgs
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      # optional, not necessary for the module
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # my secrets
+    jackwy-secrets = {
+      url = "git+ssh://git@github.com/JackTheMico/jackwy-secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
 
     disko = {
       url = "github:nix-community/disko";
@@ -18,11 +29,11 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
-
-    # home-manager = {
-    #   url = "github:nix-community/home-manager/release-24.11";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # Yazi Flavors
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
+      flake = false;
+    };
 
     # Hydenix and its nixpkgs - kept separate to avoid conflicts
     hydenix = {
@@ -35,7 +46,11 @@
     };
   };
 
-  outputs = {self, ...} @ inputs: let
+  outputs = {
+    self,
+    sops-nix,
+    ...
+  } @ inputs: let
     inherit (self) outputs;
     desktop-device = "/dev/disk/by-id/nvme-ZHITAI_TiPro7000_1TB_ZTA21T0KA23433024L";
     userName = "jackwy";
@@ -45,6 +60,7 @@
       inherit (inputs.hydenix.lib) system;
       specialArgs = {inherit inputs outputs userName gitName gitEmail;};
       modules = [
+        sops-nix.nixosModules.sops
         inputs.disko.nixosModules.default
         (import ./hosts/desktop/disko.nix {device = desktop-device;})
         ./hosts/desktop/configuration.nix
