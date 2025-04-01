@@ -2,7 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     disko = {
       url = "github:nix-community/disko";
@@ -34,20 +35,15 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = {self, ...} @ inputs: let
     inherit (self) outputs;
     desktop-device = "/dev/disk/by-id/nvme-ZHITAI_TiPro7000_1TB_ZTA21T0KA23433024L";
-    system = "x86_64-linux";
     userName = "jackwy";
     gitName = "Jack Wenyoung";
     gitEmail = "dlwxxxdlw@gmail.com";
     hydenixDesktopConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs userName gitName gitEmail system;};
+      inherit (inputs.hydenix.lib) system;
+      specialArgs = {inherit inputs outputs userName gitName gitEmail;};
       modules = [
         inputs.disko.nixosModules.default
         (import ./hosts/desktop/disko.nix {device = desktop-device;})

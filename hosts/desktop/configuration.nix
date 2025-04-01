@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   inputs,
   userName,
@@ -15,12 +14,14 @@
     config.allowUnfree = true;
     overlays = [
       inputs.hydenix.lib.overlays
+      # Include your own package set to be used eg. pkgs.userPkgs.bash
+      (final: prev: {
+        userPkgs = import inputs.nixpkgs {
+          inherit (prev) system;
+          config.allowUnfree = true;
+        };
+      })
     ];
-
-    # Include your own package set to be used eg. pkgs.userPkgs.bash
-    userPkgs = inputs.nixpkgs {
-      config.allowUnfree = true;
-    };
   };
   pShadow = "/persist/rootfs/etc/shadow";
   pShadowParent = "/persist/rootfs/etc";
@@ -108,19 +109,6 @@ in {
     enable = true;
     pulse.enable = true;
   };
-  environment.systemPackages = with pkgs;
-    [
-      git
-      lazygit
-      yazi
-      wget
-      ripgrep
-      fd
-      wl-clipboard
-      eza
-      starship
-    ]
-    ++ [inputs.jackwy-nvf.packages.${system}.default];
   networking = {
     # hostName = "${userName}-desktop";
     wireless = {enable = false;};

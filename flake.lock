@@ -58,23 +58,6 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1743295846,
-        "narHash": "sha256-hKKz07d4RV9gzxzE5Qu3RQWX8a7XpzRrP5timoxoGRQ=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "717030011980e9eb31eb8ce011261dd532bce92c",
-        "type": "github"
-      },
-      "original": {
-        "id": "home-manager",
-        "type": "indirect"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
         "nixpkgs": [
           "hydenix",
           "hydenix-nixpkgs"
@@ -96,16 +79,16 @@
     },
     "hydenix": {
       "inputs": {
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager",
         "hydenix-nixpkgs": "hydenix-nixpkgs",
         "nixos-hardware": "nixos-hardware"
       },
       "locked": {
-        "lastModified": 1742965379,
-        "narHash": "sha256-2biUu2GJvZEowQT5a2qfDPGpLcTVTnYCncVrLidTu44=",
+        "lastModified": 1743370967,
+        "narHash": "sha256-GYP0EprbMD1bARQUijYyL93hyxJebS5sPZC13D5HGrE=",
         "owner": "richen604",
         "repo": "hydenix",
-        "rev": "4ba3ac625e02c5c2c01eaa6e5f6cb35b59aa6f3d",
+        "rev": "174f11d016c18724f5357cfba6ba2b06d466db4c",
         "type": "github"
       },
       "original": {
@@ -153,11 +136,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1743134652,
+        "lastModified": 1743476936,
         "narHash": "sha256-2x/xL2IaeqP9wDMD6gNojh8cT2fyd6p95OXL1VzYjbI=",
         "owner": "JackTheMico",
         "repo": "jackwy-nvf",
-        "rev": "4e1da40372881cd83733c28c7b647633cefc0055",
+        "rev": "89d9aeaf68d300013e3458965eb172e72b5fd714",
         "type": "github"
       },
       "original": {
@@ -227,16 +210,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1743095683,
-        "narHash": "sha256-gWd4urRoLRe8GLVC/3rYRae1h+xfQzt09xOfb0PaHSk=",
-        "owner": "NixOS",
+        "lastModified": 1741865919,
+        "narHash": "sha256-4thdbnP6dlbdq+qZWTsm4ffAwoS8Tiq1YResB+RP6WE=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5e5402ecbcb27af32284d4a62553c019a3a49ea6",
+        "rev": "573c650e8a14b2faa0041645ab18aed7e60f0c9a",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -258,32 +241,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1741865919,
-        "narHash": "sha256-4thdbnP6dlbdq+qZWTsm4ffAwoS8Tiq1YResB+RP6WE=",
+        "lastModified": 1743367904,
+        "narHash": "sha256-sOos1jZGKmT6xxPvxGQyPTApOunXvScV4lNjBCXd/CI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "573c650e8a14b2faa0041645ab18aed7e60f0c9a",
+        "rev": "7ffe0edc685f14b8c635e3d6591b0bbb97365e6c",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1743095683,
-        "narHash": "sha256-gWd4urRoLRe8GLVC/3rYRae1h+xfQzt09xOfb0PaHSk=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5e5402ecbcb27af32284d4a62553c019a3a49ea6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixos-24.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -310,7 +277,7 @@
         "flake-utils": "flake-utils",
         "mnw": "mnw",
         "nil": "nil",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nmd": "nmd",
         "systems": "systems_2"
       },
@@ -331,11 +298,10 @@
     "root": {
       "inputs": {
         "disko": "disko",
-        "home-manager": "home-manager",
         "hydenix": "hydenix",
         "impermanence": "impermanence",
         "jackwy-nvf": "jackwy-nvf",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "rust-overlay": {
