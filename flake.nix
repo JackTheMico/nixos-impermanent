@@ -55,10 +55,11 @@
     desktop-device = "/dev/disk/by-id/nvme-ZHITAI_TiPro7000_1TB_ZTA21T0KA23433024L";
     userName = "jackwy";
     gitName = "Jack Wenyoung";
+    system = "x86_64-linux";
     gitEmail = "dlwxxxdlw@gmail.com";
     hydenixDesktopConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
       inherit (inputs.hydenix.lib) system;
-      specialArgs = {inherit inputs outputs userName gitName gitEmail;};
+      specialArgs = {inherit inputs outputs system userName gitName gitEmail;};
       modules = [
         sops-nix.nixosModules.sops
         inputs.disko.nixosModules.default

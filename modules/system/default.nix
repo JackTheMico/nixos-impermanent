@@ -1,11 +1,22 @@
 {
   pkgs,
   inputs,
+  system,
+  userName,
+  gitName,
+  gitEmail,
   ...
-}: {
+}: let
+  moduleNameSpace = "jackwySystemMods";
+  args = {inherit moduleNameSpace inputs system userName gitName gitEmail;};
+in {
   imports = [
-    # ./example.nix - add your modules here
+    (import ./nutstore.nix args)
   ];
+
+  jackwySystemMods = {
+    nutstore.enable = true;
+  };
 
   environment.systemPackages = with pkgs.userPkgs; [
     git

@@ -103,8 +103,28 @@ in {
       umount /btrfs_tmp
     '';
   };
-  # time.timeZone = "Asia/Shanghai";
-  # i18n.defaultLocale = "en_US.UTF-8";
+
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      type = "fcitx5";
+      enable = true;
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-chinese-addons
+          fcitx5-nord
+        ];
+      };
+    };
+  };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    EDITOR = "vim";
+    # TERMINAL = "wezterm";
+  };
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
