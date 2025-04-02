@@ -261,6 +261,10 @@ in {
       "networkmanager" # For network management
       "video" # For display/graphics access
       # Add other groups as needed
+      "input"
+      "davfs2"
+      "docker"
+      "podman"
     ];
     shell = pkgs.fish; # Change if you prefer a different shell
   };

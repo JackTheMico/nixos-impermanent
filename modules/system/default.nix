@@ -12,10 +12,12 @@
 in {
   imports = [
     (import ./nutstore.nix args)
+    (import ./docker.nix args)
   ];
 
   jackwySystemMods = {
     nutstore.enable = true;
+    docker.enable = true;
   };
 
   environment.systemPackages = with pkgs.userPkgs; [
