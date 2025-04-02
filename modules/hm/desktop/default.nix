@@ -57,6 +57,7 @@ in {
         ".local/state/wireplumber"
         ".local/state/hyde"
         ".config/lazygit"
+        ".config/yazi/plugins"
         ".config/sops/age"
         ".config/fcitx5"
         ".config/hyde"
