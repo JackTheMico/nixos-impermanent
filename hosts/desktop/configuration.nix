@@ -179,6 +179,12 @@ in {
         parentDirectory = {mode = "u=rwx,g=,o=";};
       }
     ];
+    users.${userName} = {
+      directories = [
+        ".local/share/Steam"
+        ".steam"
+      ];
+    };
   };
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -" # create /persist/home owned by root
