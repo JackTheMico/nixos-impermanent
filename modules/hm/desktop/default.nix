@@ -25,6 +25,11 @@ in {
         force = true;
         mutable = true;
       };
+      ".config/hypr/userprefs.conf" = lib.mkForce {
+        source = ./hyde/hypr/userprefs.conf;
+        force = true;
+        mutable = true;
+      };
     };
 
     stateVersion = "25.05"; # Please read the comment before changing.
