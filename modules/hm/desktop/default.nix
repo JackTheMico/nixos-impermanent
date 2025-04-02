@@ -20,6 +20,11 @@ in {
         force = true;
         mutable = true;
       };
+      ".config/kitty/kitty.conf" = lib.mkForce {
+        source = ./config/kitty.conf;
+        force = true;
+        mutable = true;
+      };
     };
 
     stateVersion = "25.05"; # Please read the comment before changing.
@@ -34,6 +39,7 @@ in {
       directories = [
         "codes"
         "Downloads"
+        "Games"
         "Music"
         "Pictures"
         "Documents"
@@ -69,6 +75,7 @@ in {
         ".cache/nvf"
         ".cache/swww"
         ".cache/starship"
+        ".cache/lutris"
         {
           directory = ".local/share/Steam";
           method = "symlink";
