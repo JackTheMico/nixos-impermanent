@@ -117,6 +117,5 @@ in {
         # https://github.com/afreakk/greasemonkeyscripts
       ];
     };
-    # home.file.".local/share/qutebrowser/userscripts/qute-keepassxc".source = "${inputs.qute-keepassxc}/qute-keepassxc";
   };
 }

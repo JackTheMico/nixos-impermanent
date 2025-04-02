@@ -27,6 +27,7 @@ in {
         gtrash
         ghostty
         lazygit
+        lazyjj
         sops
         jq # JSON preview in yazi
         rich-cli # yazi rich-preview requires

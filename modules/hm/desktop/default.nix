@@ -4,33 +4,24 @@
   userName,
   gitName,
   gitEmail,
-  # pkgs,
+  pkgs,
+  lib,
   ...
 }: let
   moduleNameSpace = "jackwyHMMods";
   args = {inherit moduleNameSpace inputs system userName gitName gitEmail;};
   gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
-  imports = [
-    inputs.sops-nix.homeManagerModules.sops
-    # inputs.impermanence.nixosModules.home-manager.impermanence
-    inputs.impermanence.homeManagerModules.impermanence
-    (import ./ssh.nix args)
-    (import ./cmdline args)
-    (import ./sops.nix args)
-    (import ./qutebrowser.nix args)
-  ];
-  jackwyHMMods = {
-    ssh = {
-      enable = true;
-      githubIdentityFile = gitSSHFile;
-      giteeIdentityFile = gitSSHFile;
-    };
-    cmdline.enable = true;
-    sopsnix.enable = true;
-    qutebrowser.enable = true;
-  };
   home = {
+    packages = with pkgs.userPkgs; [keepassxc just];
+    file = {
+      ".config/hyde/config.toml" = lib.mkForce {
+        source = ./hyde/config.toml;
+        force = true;
+        mutable = true;
+      };
+    };
+
     stateVersion = "25.05"; # Please read the comment before changing.
     # stateVersion = "24.11"; # Please read the comment before changing.
 
@@ -60,6 +51,7 @@ in {
         ".config/yazi/plugins"
         ".config/sops/age"
         ".config/fcitx5"
+        ".config/keepassxc"
         ".config/hyde"
         ".wakatime"
         ".mozilla"
@@ -72,6 +64,8 @@ in {
         ".cache/hyde/landing"
         ".cache/hyde/thumbs"
         ".cache/kitty"
+        ".cache/keepassxc"
+        ".cache/qutebrowser"
         ".cache/nvf"
         ".cache/swww"
         ".cache/starship"
@@ -83,9 +77,31 @@ in {
       files = [
         ".screenrc"
         ".config/yazi/package.toml"
+        ".cache/rofi-4.runcache"
+        ".cache/rofi-entry-history.txt"
+        ".cache/rofi3.druncache"
       ];
       allowOther = true;
     };
+  };
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+    # inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.impermanence.homeManagerModules.impermanence
+    (import ./ssh.nix args)
+    (import ./cmdline args)
+    (import ./sops.nix args)
+    (import ./qutebrowser.nix args)
+  ];
+  jackwyHMMods = {
+    ssh = {
+      enable = true;
+      githubIdentityFile = gitSSHFile;
+      giteeIdentityFile = gitSSHFile;
+    };
+    cmdline.enable = true;
+    sopsnix.enable = true;
+    qutebrowser.enable = true;
   };
 
   # hydenix home-manager options go here
@@ -150,7 +166,7 @@ in {
     social = {
       enable = true; # enable social module
       discord.enable = true; # enable discord module
-      webcord.enable = true; # enable webcord module
+      webcord.enable = false; # enable webcord module
       vesktop.enable = true; # enable vesktop module
     };
     spotify.enable = true; # enable spotify module
