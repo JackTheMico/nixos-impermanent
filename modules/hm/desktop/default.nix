@@ -76,10 +76,6 @@ in {
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
       ];
       files = [
         ".screenrc"

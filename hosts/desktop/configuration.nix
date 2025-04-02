@@ -135,8 +135,8 @@ in {
     # firewall.enable = false;
     networkmanager = {enable = true;};
     # NOTE: Require clash-verge-rev or another computer which has it.
-    proxy.default = "http://127.0.0.1:7897";
-    proxy.noProxy = "127.0.0.1,localhost,.localdomain";
+    # proxy.default = "http://127.0.0.1:7897";
+    # proxy.noProxy = "127.0.0.1,localhost,.localdomain";
   };
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
