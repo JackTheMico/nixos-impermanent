@@ -30,6 +30,11 @@ in {
         force = true;
         mutable = true;
       };
+      ".config/hypr/monitors.conf" = lib.mkForce {
+        source = ./hyde/hypr/monitors.conf;
+        force = true;
+        mutable = false;
+      };
     };
 
     stateVersion = "25.05"; # Please read the comment before changing.
@@ -106,6 +111,7 @@ in {
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
+        ".cache/nix-index"
       ];
       files = [
         ".screenrc"
@@ -216,9 +222,17 @@ in {
       active = "Catppuccin Mocha"; # active theme name
       themes = [
         "Abyssal-Wave"
+        "Cat Latte"
+        "Crimson Blade"
+        "Cosmic Blue"
         "Catppuccin Mocha"
         "Catppuccin Latte"
         "Dracula"
+        "DoomBringers"
+        "Rain Dark"
+        "Scarlet-Night"
+        "Solarized-Dark"
+        "Pixel-Dream"
         "One Dark"
         "Tokyo Night"
       ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
