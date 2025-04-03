@@ -186,12 +186,6 @@ in {
       ];
     };
   };
-  systemd.tmpfiles.rules = [
-    "d /persist/home/ 0777 root root -" # create /persist/home owned by root
-    "d /persist/rootfs/etc/ 0777 root root -" # for persist changed user password
-    "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
-    "d /persist/nixos/ 0700 ${userName} users -" # /persist/nixos owned by that user
-  ];
   # NOTE: https://github.com/nix-community/impermanence/issues/120#issuecomment-2382674299
   system.activationScripts = {
     etc_shadow = ''
@@ -201,21 +195,37 @@ in {
 
     users.deps = ["etc_shadow"];
   };
+  systemd = {
+    tmpfiles.rules = [
+      "d /persist/home/ 0777 root root -" # create /persist/home owned by root
+      "d /persist/rootfs/etc/ 0777 root root -" # for persist changed user password
+      "d /persist/home/${userName} 0700 ${userName} users -" # /persist/home/<user> owned by that user
+      "d /persist/nixos/ 0700 ${userName} users -" # /persist/nixos owned by that user
+    ];
 
-  systemd.services."etc_shadow_persistence" = {
-    enable = true;
-    description = "Persist /etc/shadow on shutdown.";
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.util-linux];
-    unitConfig.defaultDependencies = true;
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      # Service is stopped before shutdown
-      ExecStop = pkgs.writeShellScript "persist_etc_shadow" ''
-        mkdir --parents "${pShadowParent}"
-        cp /etc/shadow ${pShadow}
-      '';
+    services."etc_shadow_persistence" = {
+      enable = true;
+      description = "Persist /etc/shadow on shutdown.";
+      wantedBy = ["multi-user.target"];
+      path = [pkgs.util-linux];
+      unitConfig.defaultDependencies = true;
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        # Service is stopped before shutdown
+        ExecStop = pkgs.writeShellScript "persist_etc_shadow" ''
+          mkdir --parents "${pShadowParent}"
+          cp /etc/shadow ${pShadow}
+        '';
+      };
+    };
+    # nix-daemon proxy setting
+    services.nix-daemon.environment = {
+      # socks5h mean that the hostname is resolved by the SOCKS server
+      https_proxy = "socks5h://localhost:7897"; # I use clash-verge-rev
+      http_proxy = "socks5h://localhost:7897";
+      all_proxy = "socks5h://localhost:7897";
+      # https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
     };
   };
 
