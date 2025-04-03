@@ -13,7 +13,7 @@
   gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
   home = {
-    packages = with pkgs.userPkgs; [keepassxc just];
+    packages = with pkgs.userPkgs; [keepassxc];
     file = {
       ".config/hyde/config.toml" = lib.mkForce {
         source = ./hyde/config.toml;
@@ -91,6 +91,7 @@ in {
         ".config/hyde"
         ".wakatime"
         ".mozilla"
+        ".musikcube"
         ".cache/fish"
         ".cache/mozilla"
         ".cache/cliphist"

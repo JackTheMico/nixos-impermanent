@@ -22,17 +22,24 @@ in {
         delta
         fzf
         eza
+        exercism # https://exercism.org/tracks/elixir
         grc # I forget what this for.
         gh
         gtrash
         ghostty
         lazygit
         lazyjj
+        just
         sops
+        mpv
+        youtube-tui
+        yt-dlp
+        musikcube
         jq # JSON preview in yazi
         rich-cli # yazi rich-preview requires
         navi # Great cmd help tool
         nix-search-cli
+        nix-inspect # # Interactive TUI for inspecting nix configs.
         nvd # Nix/NixOS package version diff tool
         nushell
         neovide

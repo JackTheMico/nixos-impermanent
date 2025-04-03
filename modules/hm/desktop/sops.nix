@@ -23,19 +23,22 @@ in {
         "gh_token" = {};
       };
       templates = {
-        "hosts.yml".content =
-          /*
-          yaml
-          */
-          ''
-            github.com:
-              users:
-                JackTheMico:
-                  oauth_token: "${config.sops.placeholder.gh_token}"
-              git_protocol: ssh
-              oauth_token: "${config.sops.placeholder.gh_token}"
-              user: JackTheMico
-          '';
+        "hosts.yml" = {
+          content =
+            /*
+            yaml
+            */
+            ''
+              github.com:
+                users:
+                  JackTheMico:
+                    oauth_token: "${config.sops.placeholder.gh_token}"
+                git_protocol: ssh
+                oauth_token: "${config.sops.placeholder.gh_token}"
+                user: JackTheMico
+            '';
+          mode = "0777";
+        };
         "nix.conf".content = ''
           access-tokens = github.com=${config.sops.placeholder.gh_token}
         '';
