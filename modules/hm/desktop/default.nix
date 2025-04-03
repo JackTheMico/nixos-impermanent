@@ -55,11 +55,10 @@ in {
         ".local/share/io.github.clash-verge-rev.clash-verge-rev"
         ".local/share/fcitx5"
         ".local/share/godot"
-        ".local/share/hyde"
-        ".local/share/themes"
-        ".local/share/icons"
+        # ".local/share/hyde" #NOTE: No need to persist,otherwise errors.
+        # ".local/share/themes" #NOTE: No need to persist,otherwise errors.
+        # ".local/share/icons" #NOTE: No need to persist,otherwise errors.
         ".local/share/containers"
-        ".local/share/fish"
         ".local/share/nvf"
         ".local/share/gvfs-metadata"
         ".local/share/clash-verge"
@@ -67,12 +66,12 @@ in {
         ".local/share/zoxide"
         ".local/share/vulkan"
         ".local/share/applications/wine"
-        ".local/share/rofi"
+        # ".local/share/rofi" #NOTE: No need to persist,otherwise errors.
         ".local/share/dolphin"
-        ".local/share/fastfetch"
+        # ".local/share/fastfetch" #NOTE: No need to persist,otherwise errors.
         ".local/share/RecentDocuments"
         ".local/share/neovide"
-        ".local/share/hyprland"
+        # ".local/share/hyprland" #NOTE: No need to persist,otherwise errors.
         ".local/share/qutebrowser"
         ".local/share/Trash"
         ".local/share/systemd"
@@ -110,6 +109,7 @@ in {
       ];
       files = [
         ".screenrc"
+        ".local/share/fish/fish_history"
         ".config/yazi/package.toml"
         ".local/share/applications/mimeinfo.cache"
         ".cache/rofi-4.runcache"

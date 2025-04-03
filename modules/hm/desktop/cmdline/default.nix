@@ -18,6 +18,7 @@ in {
     home.packages = with pkgs.userPkgs;
       [
         bat
+        btop
         chezmoi
         delta
         fzf
