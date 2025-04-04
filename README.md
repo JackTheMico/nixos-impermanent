@@ -18,6 +18,11 @@ This is my personal NixOS configuration repository.
    [thundertheidiot solution about persisting /etc/shadow file](https://github.com/nix-community/impermanence/issues/120#issuecomment-2382674299)
    to allow users be able to change their password after the installation.
 
+## Looks like
+
+Please go to the [hydenix repository](https://github.com/richen604/hydenix) to
+check out the video.
+
 ## How to use
 
 ### Preperation
