@@ -25,9 +25,13 @@ in {
     wget
     ripgrep
     fd
-    # wl-clipboard
     starship
     inputs.jackwy-nvf.packages.${system}.default
+    # hyprpm requires
+    pkg-config
+    cmake
+    meson
+    cpio
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
   ];

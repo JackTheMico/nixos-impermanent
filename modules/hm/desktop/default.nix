@@ -70,14 +70,14 @@ in {
         ".local/share/sddm"
         ".local/share/zoxide"
         ".local/share/vulkan"
-        ".local/share/applications/wine"
+        # ".local/share/applications/wine"
         # ".local/share/rofi" #NOTE: No need to persist,otherwise errors.
         ".local/share/dolphin"
         # ".local/share/fastfetch" #NOTE: No need to persist,otherwise errors.
         ".local/share/RecentDocuments"
         ".local/share/neovide"
         # ".local/share/hyprland" #NOTE: No need to persist,otherwise errors.
-        # ".local/share/qutebrowser"#NOTE: No need to persist,otherwise errors.
+        ".local/share/qutebrowser"
         ".local/share/Trash"
         ".local/share/systemd"
         ".gnupg"
