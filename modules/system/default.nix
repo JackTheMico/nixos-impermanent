@@ -25,7 +25,7 @@ in {
     wget
     ripgrep
     fd
-    wl-clipboard
+    # wl-clipboard
     starship
     inputs.jackwy-nvf.packages.${system}.default
     # pkgs.vscode - hydenix's vscode version
