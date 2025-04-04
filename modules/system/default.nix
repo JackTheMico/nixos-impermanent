@@ -27,11 +27,12 @@ in {
     fd
     starship
     inputs.jackwy-nvf.packages.${system}.default
-    # hyprpm requires
-    pkg-config
-    cmake
-    meson
-    cpio
+    # hyprpm requires #NOTE: ✖ failed to install headers with error code 2 (Headers missing)
+    # pkg-config
+    # cmake
+    # meson
+    # cpio
+
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
   ];
