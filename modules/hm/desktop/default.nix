@@ -13,7 +13,7 @@
   gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
   home = {
-    packages = with pkgs.userPkgs; [keepassxc];
+    packages = with pkgs.userPkgs; [keepassxc obsidian];
     file = {
       ".config/hyde/config.toml" = lib.mkForce {
         source = ./hyde/config.toml;
@@ -77,7 +77,7 @@ in {
         ".local/share/RecentDocuments"
         ".local/share/neovide"
         # ".local/share/hyprland" #NOTE: No need to persist,otherwise errors.
-        ".local/share/qutebrowser"
+        # ".local/share/qutebrowser"#NOTE: No need to persist,otherwise errors.
         ".local/share/Trash"
         ".local/share/systemd"
         ".gnupg"
@@ -93,6 +93,7 @@ in {
         ".config/fcitx5"
         ".config/keepassxc"
         ".config/hyde"
+        ".config/obsidian"
         ".wakatime"
         ".mozilla"
         ".musikcube"
