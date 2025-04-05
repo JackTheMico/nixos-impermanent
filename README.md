@@ -115,9 +115,9 @@ check out the video.
 ## Thanks
 
 - [Vimjoyer Youtube Channel](https://www.youtube.com/watch?v=YPKwkWtK7l0), I
+  learned a lot from his videos about NixOS.
 - [hydenix](https://github.com/richen604/hydenix), A great startup template for
-  NixOS comes with beautiful and powerful presets. learned a lot from his videos
-  about NixOS.
+  NixOS comes with beautiful and powerful presets.
 - [HYDE](https://github.com/HyDE-Project/HyDE), hydenix is the nix version of
   HYDE.
 - [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs), I

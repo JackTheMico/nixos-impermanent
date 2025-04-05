@@ -19,7 +19,7 @@ in {
   jackwySystemMods = {
     nutstore.enable = true;
     docker.enable = true;
-    firefox.enable = false;
+    firefox.enable = true;
   };
 
   programs = {

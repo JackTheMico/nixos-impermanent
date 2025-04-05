@@ -4,7 +4,7 @@
   userName,
   gitName,
   gitEmail,
-  pkgs,
+  # pkgs,
   lib,
   ...
 }: let
@@ -15,6 +15,29 @@ in {
   home = {
     # packages = with pkgs.userPkgs; [keepassxc obsidian];
     file = {
+      ".local/share/applications/obsidian-fcitx5.desktop".text = ''
+        [Desktop Entry]
+        Categories=Office
+        Comment=Knowledge base
+        Exec=obsidian --disable-gpu --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime %u
+        Icon=obsidian
+        MimeType=x-scheme-handler/obsidian
+        Name=Obsidian Fcitx5
+        Type=Application
+        Version=1.4
+      '';
+      ".local/share/applications/discord-proxy.desktop".text = ''
+        [Desktop Entry]
+        Categories=Network;InstantMessaging
+        Exec=env http_proxy=http://127.0.0.1:7897 https_proxy=http://127.0.0.1:7897 Discord --proxy-server="http://127.0.0.1:7897"
+        GenericName=All-in-one cross-platform voice and text chat for gamers
+        Icon=discord
+        MimeType=x-scheme-handler/discord
+        Name=Discord Proxy
+        StartupWMClass=discord
+        Type=Application
+        Version=1.4
+      '';
       ".config/hyde/config.toml" = lib.mkForce {
         source = ./hyde/config.toml;
         force = true;
