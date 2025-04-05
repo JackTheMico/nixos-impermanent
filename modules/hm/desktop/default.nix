@@ -94,6 +94,7 @@ in {
         ".config/keepassxc"
         ".config/hyde"
         ".config/obsidian"
+        ".config/discord"
         ".wakatime"
         ".mozilla"
         ".musikcube"

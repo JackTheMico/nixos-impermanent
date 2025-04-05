@@ -42,9 +42,13 @@ in {
         "nix.conf".content = ''
           access-tokens = github.com=${config.sops.placeholder.gh_token}
         '';
+        # "netrc".content = ''
+        #   machine youtube login ${config.sops.placeholder.yt_username} password ${config.sops.placeholder.yt_password}
+        # '';
       };
     };
     xdg.configFile."gh/hosts.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."hosts.yml".path}";
     xdg.configFile."nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."nix.conf".path}";
+    # home.file.".netrc".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."netrc".path}";
   };
 }

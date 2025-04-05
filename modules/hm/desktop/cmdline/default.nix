@@ -21,7 +21,6 @@ in {
         btop
         chezmoi
         delta
-        downonspot
         fzf
         eza
         exercism # https://exercism.org/tracks/elixir
@@ -33,10 +32,9 @@ in {
         lazyjj
         just
         sops
-        spotdl
+        # spotdl # NOTE: not working
         mpv
-        youtube-tui
-        yt-dlp
+        # youtube-tui # NOTE: not working
         musikcube
         jq # JSON preview in yazi
         rich-cli # yazi rich-preview requires
@@ -87,6 +85,11 @@ in {
             default-command = "log";
             diff.format = "git";
             allow-init-native = true;
+          };
+          signing = {
+            behavior = "own";
+            backend = "gpg";
+            key = "A30DF874D95E6029";
           };
         };
       };
@@ -152,6 +155,14 @@ in {
           czi = "chezmoi";
           ns = "nix-search";
           wgete = "wget -e 'http-proxy=http:localhost:7897; https-proxy=http://localhost:7897' ";
+        };
+      };
+      yt-dlp = {
+        enable = true;
+        settings = {
+          proxy = "127.0.0.1:7897";
+          # netrc = true;
+          cookies-from-browser = "firefox";
         };
       };
       yazi = {
