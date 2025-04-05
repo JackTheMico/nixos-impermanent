@@ -119,7 +119,7 @@ in {
         ".screenrc"
         ".local/share/fish/fish_history"
         ".config/yazi/package.toml"
-        ".local/share/applications/mimeinfo.cache"
+        # ".local/share/applications/mimeinfo.cache" # NOTE: Don't need to persist
         ".cache/rofi-4.runcache"
         ".cache/rofi-entry-history.txt"
         ".cache/rofi3.druncache"
@@ -136,6 +136,7 @@ in {
     (import ./cmdline args)
     (import ./sops.nix args)
     (import ./qutebrowser.nix args)
+    (import ./wezterm args)
   ];
   jackwyHMMods = {
     ssh = {
@@ -147,6 +148,7 @@ in {
     cmdline.enable = true;
     sopsnix.enable = true;
     qutebrowser.enable = true;
+    wezterm.enable = true;
   };
 
   # hydenix home-manager options go here

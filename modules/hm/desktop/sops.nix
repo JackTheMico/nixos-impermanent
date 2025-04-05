@@ -21,6 +21,7 @@ in {
         #   path = "/home/jackwenyoung/.ssh/id_nixos_jackwy_laptop";
         # };
         "gh_token" = {};
+        "wakatime" = {};
       };
       templates = {
         "hosts.yml" = {
@@ -42,6 +43,17 @@ in {
         "nix.conf".content = ''
           access-tokens = github.com=${config.sops.placeholder.gh_token}
         '';
+        "wakatime.cfg".content = ''
+          [settings]
+          debug = false
+          hidefilenames = false
+          ignore =
+              COMMIT_EDITMSG$
+              PULLREQ_EDITMSG$
+              MERGE_MSG$
+              TAG_EDITMSG$
+          api_key=${config.sops.placeholder.wakatime};
+        '';
         # "netrc".content = ''
         #   machine youtube login ${config.sops.placeholder.yt_username} password ${config.sops.placeholder.yt_password}
         # '';
@@ -50,5 +62,6 @@ in {
     xdg.configFile."gh/hosts.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."hosts.yml".path}";
     xdg.configFile."nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."nix.conf".path}";
     # home.file.".netrc".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."netrc".path}";
+    home.file.".wakatime.cfg".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."wakatime.cfg".path}";
   };
 }

@@ -19,7 +19,19 @@ in {
   jackwySystemMods = {
     nutstore.enable = true;
     docker.enable = true;
-    firefox.enable = true;
+    firefox.enable = false;
+  };
+
+  programs = {
+    gnupg = {
+      agent = {
+        enable = true;
+        settings = {
+          # Increase default ttl.
+          default-cache-ttl = 86400;
+        };
+      };
+    };
   };
 
   environment.systemPackages = with pkgs.userPkgs; [
