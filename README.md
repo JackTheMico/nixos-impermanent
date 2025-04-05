@@ -111,3 +111,17 @@ check out the video.
 4. Reboot and login with your initialPassword, remember using
    `passwd <your-user-name>` to change the password.
 5. Happy hacking🤭!
+
+## Thanks
+
+- [Vimjoyer Youtube Channel](https://www.youtube.com/watch?v=YPKwkWtK7l0), I
+- [hydenix](https://github.com/richen604/hydenix), A great startup template for
+  NixOS comes with beautiful and powerful presets. learned a lot from his videos
+  about NixOS.
+- [HYDE](https://github.com/HyDE-Project/HyDE), hydenix is the nix version of
+  HYDE.
+- [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs), I
+  built my old NixOS based on this.
+- [nvf](https://notashelf.github.io/nvf/index.xhtml), A good framework to build
+  your own neovim mostly in nix. NixCats is also good, but I prefer to use nix
+  rather than lua.

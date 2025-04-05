@@ -13,7 +13,7 @@
   gitSSHFile = "/home/${userName}/.ssh/id_nixos_jackwy_desktop";
 in {
   home = {
-    packages = with pkgs.userPkgs; [keepassxc obsidian];
+    # packages = with pkgs.userPkgs; [keepassxc obsidian];
     file = {
       ".config/hyde/config.toml" = lib.mkForce {
         source = ./hyde/config.toml;
@@ -130,6 +130,7 @@ in {
     inputs.sops-nix.homeManagerModules.sops
     # inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.impermanence.homeManagerModules.impermanence
+    (import ./gui.nix args)
     (import ./ssh.nix args)
     (import ./cmdline args)
     (import ./sops.nix args)
@@ -141,6 +142,7 @@ in {
       githubIdentityFile = gitSSHFile;
       giteeIdentityFile = gitSSHFile;
     };
+    gui.enable = true;
     cmdline.enable = true;
     sopsnix.enable = true;
     qutebrowser.enable = true;
@@ -168,7 +170,7 @@ in {
     };
     fastfetch.enable = true; # fastfetch configuration
     firefox = {
-      enable = true; # enable firefox module
+      enable = false; # enable firefox module
       useHydeConfig = false; # use hyde firefox configuration and extensions
       useUserChrome = true; # if useHydeConfig is true, apply hyde userChrome CSS customizations
       useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences

@@ -21,6 +21,7 @@ in {
         btop
         chezmoi
         delta
+        downonspot
         fzf
         eza
         exercism # https://exercism.org/tracks/elixir
@@ -32,6 +33,7 @@ in {
         lazyjj
         just
         sops
+        spotdl
         mpv
         youtube-tui
         yt-dlp
@@ -149,6 +151,7 @@ in {
           gpom = "git push -u origin main";
           czi = "chezmoi";
           ns = "nix-search";
+          wgete = "wget -e 'http-proxy=http:localhost:7897; https-proxy=http://localhost:7897' ";
         };
       };
       yazi = {

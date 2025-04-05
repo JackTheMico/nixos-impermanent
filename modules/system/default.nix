@@ -13,11 +13,13 @@ in {
   imports = [
     (import ./nutstore.nix args)
     (import ./docker.nix args)
+    (import ./firefox.nix args)
   ];
 
   jackwySystemMods = {
     nutstore.enable = true;
     docker.enable = true;
+    firefox.enable = true;
   };
 
   environment.systemPackages = with pkgs.userPkgs; [
