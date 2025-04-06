@@ -66,6 +66,7 @@ in {
         xzm = "https://www.xiezuocat.com/";
         yhdm = "https://www.yinhuadm.vip/";
         mt = "https://metaso.cn";
+        imgur = "https://imgur.com/";
       };
       settings = {
         auto_save.session = true;

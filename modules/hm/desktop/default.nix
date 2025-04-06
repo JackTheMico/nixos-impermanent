@@ -38,6 +38,19 @@ in {
         Type=Application
         Version=1.4
       '';
+      ".local/share/applications/spotify-proxy.desktop".text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=Spotify Proxy
+        GenericName=Music Player
+        Icon=spotify-client
+        TryExec=spotify
+        Exec=env http_proxy=http://localhost:7897 https_proxy=http://localhost:7897 all_proxy=http://localhost:7897 spotify --proxy-server="http://localhost:7897" %U
+        Terminal=false
+        MimeType=x-scheme-handler/spotify;
+        Categories=Audio;Music;Player;AudioVideo;
+        StartupWMClass=spotify
+      '';
       ".config/hyde/config.toml" = lib.mkForce {
         source = ./hyde/config.toml;
         force = true;
@@ -103,6 +116,7 @@ in {
         ".local/share/qutebrowser"
         ".local/share/Trash"
         ".local/share/systemd"
+        ".local/share/wezterm"
         ".gnupg"
         ".ssh"
         ".nixops"
@@ -122,6 +136,7 @@ in {
         ".wakatime"
         ".mozilla"
         ".musikcube"
+        ".vscode-oss"
         ".cache/fish"
         ".cache/mozilla"
         ".cache/cliphist"
@@ -137,6 +152,7 @@ in {
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
+        ".cache/wezterm"
         ".cache/nix-index"
       ];
       files = [

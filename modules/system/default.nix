@@ -14,12 +14,14 @@ in {
     (import ./nutstore.nix args)
     (import ./docker.nix args)
     (import ./firefox.nix args)
+    (import ./fonts.nix args)
   ];
 
   jackwySystemMods = {
     nutstore.enable = true;
     docker.enable = true;
     firefox.enable = true;
+    fontProfiles.enable = true;
   };
 
   programs = {

@@ -10,7 +10,10 @@ local wezpaincontrol = wezterm.plugin.require("https://github.com/sei40kr/wez-pa
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 
 local config = {
+  -- set_environment_variables = {
+  -- },
   color_scheme = "Catppuccin Macchiato",
+  automatically_reload_config = true,
   leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = {
     {
