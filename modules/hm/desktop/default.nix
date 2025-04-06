@@ -118,6 +118,7 @@ in {
         ".config/hyde"
         ".config/obsidian"
         ".config/discord"
+        ".config/VSCodium"
         ".wakatime"
         ".mozilla"
         ".musikcube"
@@ -160,6 +161,7 @@ in {
     (import ./sops.nix args)
     (import ./qutebrowser.nix args)
     (import ./wezterm args)
+    (import ./vscodium.nix args)
   ];
   jackwyHMMods = {
     ssh = {
@@ -172,6 +174,7 @@ in {
     sopsnix.enable = true;
     qutebrowser.enable = true;
     wezterm.enable = true;
+    vscodium.enable = true;
   };
 
   # hydenix home-manager options go here
@@ -198,9 +201,9 @@ in {
     firefox = {
       enable = false; # enable firefox module
       useHydeConfig = false; # use hyde firefox configuration and extensions
-      useUserChrome = true; # if useHydeConfig is true, apply hyde userChrome CSS customizations
-      useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences
-      useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
+      useUserChrome = false; # if useHydeConfig is true, apply hyde userChrome CSS customizations
+      useUserJs = false; # if useHydeConfig is true, apply hyde user.js preferences
+      useExtensions = false; # if useHydeConfig is true, install hyde firefox extensions
     };
     gaming.enable = true; # enable gaming module
     git = {
