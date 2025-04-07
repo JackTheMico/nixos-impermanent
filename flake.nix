@@ -5,10 +5,10 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # nix-index-database
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nix-index-database = {
+    #   url = "github:nix-community/nix-index-database";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # Nixpkgs
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -54,7 +54,6 @@
   outputs = {
     self,
     sops-nix,
-    nix-index-database,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -72,7 +71,6 @@
         (import ./hosts/desktop/disko.nix {device = desktop-device;})
         ./hosts/desktop/configuration.nix
         inputs.impermanence.nixosModules.impermanence
-        nix-index-database.nixosModules.nix-index
       ];
     };
   in {

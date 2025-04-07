@@ -147,13 +147,11 @@ in {
         ".cache/hyde/thumbs"
         ".cache/kitty"
         ".cache/keepassxc"
-        ".cache/qutebrowser"
         ".cache/nvf"
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
         ".cache/wezterm"
-        ".cache/nix-index"
       ];
       files = [
         ".screenrc"
@@ -202,7 +200,7 @@ in {
     # /*
     # ! Below are defaults
 
-    comma.enable = true; # useful nix tool to run software without installing it first
+    comma.enable = false; # useful nix tool to run software without installing it first
     dolphin.enable = true; # file manager
     editors = {
       enable = false; # enable editors module
