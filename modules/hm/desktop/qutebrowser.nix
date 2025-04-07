@@ -91,7 +91,6 @@ in {
           position = "bottom";
           show = "multiple";
         };
-        spellcheck.languages = ["en-US"];
         scrolling.smooth = true;
         statusbar.show = "in-mode";
         url = {

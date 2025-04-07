@@ -34,6 +34,9 @@ in {
         lazyjj
         tuir
         ytermusic
+        dooit
+        dooit-extras
+        smassh
         # -----
         just
         sops
