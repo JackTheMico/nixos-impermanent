@@ -22,6 +22,10 @@ in {
         # };
         "gh_token" = {};
         "wakatime" = {};
+        "imgur_client_id" = {};
+        "imgur_secret" = {};
+        "imgur_access_token" = {};
+        "imgur_refresh_token" = {};
       };
       templates = {
         "hosts.yml" = {
@@ -54,13 +58,25 @@ in {
               TAG_EDITMSG$
           api_key=${config.sops.placeholder.wakatime};
         '';
+        "imgur-credentials.conf".content = ''
+          CLIENT_ID=${config.sops.placeholder.imgur_client_id}
+          CLIENT_SECRET=${config.sops.placeholder.imgur_secret}
+          ACCESS_TOKEN=${config.sops.placeholder.imgur_access_token}
+          REFRESH_TOKEN=${config.sops.placeholder.imgur_refresh_token}
+          TOKEN_EXPIRE_TIME='2059376599'
+        '';
         # "netrc".content = ''
         #   machine youtube login ${config.sops.placeholder.yt_username} password ${config.sops.placeholder.yt_password}
         # '';
       };
     };
-    xdg.configFile."gh/hosts.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."hosts.yml".path}";
-    xdg.configFile."nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."nix.conf".path}";
+    xdg = {
+      configFile = {
+        "gh/hosts.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."hosts.yml".path}";
+        "nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."nix.conf".path}";
+        "imgurbash2/credentials.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."imgur-credentials.conf".path}";
+      };
+    };
     # home.file.".netrc".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."netrc".path}";
     home.file.".wakatime.cfg".source = config.lib.file.mkOutOfStoreSymlink "${config.sops.templates."wakatime.cfg".path}";
   };

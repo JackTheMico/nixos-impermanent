@@ -28,6 +28,7 @@ in {
         gh
         gtrash
         ghostty
+        imgurbash2
         lazygit
         lazyjj
         just
@@ -254,5 +255,12 @@ in {
         enableNushellIntegration = true;
       };
     };
+    xdg.configFile."imgurbash2/config".text = ''
+      # Set to true to copy URLs of uploaded images to your clipboard
+      COPY_URL_TO_CLIP=true
+
+      # Enable/Disable information being logged within a log file
+      DISABLE_LOGGING=false
+    '';
   };
 }

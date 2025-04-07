@@ -159,6 +159,7 @@ in {
         ".screenrc"
         ".local/share/fish/fish_history"
         ".config/yazi/package.toml"
+        ".config/imgurbash2/log"
         # ".local/share/applications/mimeinfo.cache" # NOTE: Don't need to persist
         ".cache/rofi-4.runcache"
         ".cache/rofi-entry-history.txt"
