@@ -35,7 +35,6 @@ in {
         tuir
         ytermusic
         dooit
-        dooit-extras
         smassh
         # -----
         just
@@ -59,7 +58,7 @@ in {
         zip
         unzip
       ]
-      ++ [pkgs.yazi pkgs.devenv pkgs.lazyjournal];
+      ++ [pkgs.yazi pkgs.devenv pkgs.lazyjournal pkgs.dooit-extras];
     programs = {
       nh = {
         enable = true;
@@ -163,6 +162,9 @@ in {
           czi = "chezmoi";
           ns = "nix-search";
           wgete = "wget -e 'http-proxy=http:localhost:7897; https-proxy=http://localhost:7897' ";
+          ".j" = "just --justfile ~/.user.justfile --working-directory .";
+          ",j" = "just --justfile ~/.user.justfile --working-directory ~";
+          jt = "just";
         };
       };
       yt-dlp = {
@@ -269,5 +271,6 @@ in {
       # Enable/Disable information being logged within a log file
       DISABLE_LOGGING=false
     '';
+    home.file.".user.justfile".source = config.lib.file.mkOutOfStoreSymlink ./justfile;
   };
 }

@@ -1,0 +1,23 @@
+alias c := clean
+
+default: 
+  just -f ~/.user.justfile -l
+
+home_dir := env_var('HOME')
+rm_theme := home_dir / ".config/hypr/hyprlock/theme.conf"
+rm_conf_mimeapps := home_dir / ".config/mimeapps.list"
+
+
+# 检查路径是否存在
+path-exists PATH:
+  @if [ -e "{{PATH}}" ]; then \
+    echo "Path '{{PATH}}' exists"; \
+    rm -rf {{PATH}}; \
+    echo "Path '{{PATH}}' deleted"; \
+  else \
+    echo "Path '{{PATH}}' does not exist"; \
+  fi
+
+clean:
+  @just path-exists "{{rm_theme}}"
+  @just path-exists "{{rm_conf_mimeapps}}"
