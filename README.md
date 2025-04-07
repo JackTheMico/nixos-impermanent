@@ -20,8 +20,10 @@ This is my personal NixOS configuration repository.
 
 ## Looks like
 
-Please go to the [hydenix repository](https://github.com/richen604/hydenix) to
-check out the video.
+![](https://i.imgur.com/EBNXtWc.png) ![](https://i.imgur.com/AL38rUO.png)
+![](https://i.imgur.com/kQjhswI.jpeg)
+
+![](https://i.imgur.com/fZBbWYH.png)
 
 ## How to use
 
@@ -69,10 +71,10 @@ check out the video.
    1. If you have multiple disks, you should run `ls -l /dev/disk/by-id/` to get
       the unique name as the blue one in the screenshot below. The blue one for
       example: "nvme-ZHITAI_TiPro7000_1TB_ZTA21T0KA23433024L" is the device name
-      you need. ![](./attachments/IMG_20250331_105926.jpg)
+      you need. ![](https://i.imgur.com/qdIzKJE.jpeg)
    2. If you only have one disk, the short name should work, run `lsblk` to get
       it. It should look like "/dev/sda" or "/dev/nvme" etc.
-      ![](./attachments/IMG_20250331_110054.jpg)
+      ![](https://i.imgur.com/vQAGO3r.jpeg)
    3. Why? Because if you have multiple disks, the short name might be changed
       on every time you boot the machine. And it would cause system fail to
       boot, trust me, I have experienced it.

@@ -26,11 +26,15 @@ in {
         exercism # https://exercism.org/tracks/elixir
         grc # I forget what this for.
         gh
-        gtrash
+        # gtrash
         ghostty
         imgurbash2
+        # TUI
         lazygit
         lazyjj
+        tuir
+        ytermusic
+        # -----
         just
         sops
         # spotdl # NOTE: not working
