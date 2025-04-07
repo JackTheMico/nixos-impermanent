@@ -117,6 +117,7 @@ in {
         ".local/share/Trash"
         ".local/share/systemd"
         ".local/share/wezterm"
+        ".local/share/dooit"
         ".gnupg"
         ".ssh"
         ".nixops"
@@ -151,6 +152,8 @@ in {
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
+        ".cache/qutebrowser"
+        ".cache/dooit"
         ".cache/wezterm"
       ];
       files = [
