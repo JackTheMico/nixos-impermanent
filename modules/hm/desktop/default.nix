@@ -106,6 +106,7 @@ in {
         ".local/share/sddm"
         ".local/share/zoxide"
         ".local/share/vulkan"
+        ".local/share/navi"
         # ".local/share/applications/wine"
         # ".local/share/rofi" #NOTE: No need to persist,otherwise errors.
         ".local/share/dolphin"

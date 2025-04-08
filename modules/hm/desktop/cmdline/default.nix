@@ -17,13 +17,9 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs.userPkgs;
       [
-        bat
         btop
         chezmoi
         cachix
-        delta
-        fzf
-        eza
         exercism # https://exercism.org/tracks/elixir
         grc # I forget what this for.
         gh
@@ -43,23 +39,76 @@ in {
         # spotdl # NOTE: not working
         mpv
         # youtube-tui # NOTE: not working
-        jq # JSON preview in yazi
-        rich-cli # yazi rich-preview requires
-        navi # Great cmd help tool
+        jq # NOTE: JSON preview in yazi
+        rich-cli # NOTE: yazi rich-preview requires
+        navi # NOTE: Great cmd help tool
         nix-search-cli
         nix-inspect # # Interactive TUI for inspecting nix configs.
         nvd # Nix/NixOS package version diff tool
         nushell
         neovide
-        starship
         translate-shell
-        thefuck
         pipx
         zip
         unzip
       ]
       ++ [pkgs.yazi pkgs.devenv pkgs.lazyjournal pkgs.dooit-extras];
     programs = {
+      bat = {
+        enable = true;
+        config = {
+          theme = "dracula";
+        };
+        extraPackages = with pkgs.userPkgs.bat-extras; [
+          batdiff
+          batman
+          batgrep
+          batwatch
+          prettybat
+        ];
+        themes = {
+          dracula = {
+            src = pkgs.fetchFromGitHub {
+              owner = "dracula";
+              repo = "sublime"; # Bat uses sublime syntax for its themes
+              rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+              sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+            };
+            file = "Dracula.tmTheme";
+          };
+        };
+      };
+      eza = {
+        enable = true;
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableNushellIntegration = true;
+        git = true;
+        icons = "always";
+        colors = "always";
+      };
+      fzf = {
+        enable = true;
+        changeDirWidgetCommand = "fd --type d";
+        changeDirWidgetOptions = [
+          "--preview 'eza --tree --color=always {} | head -200'"
+        ];
+
+        defaultOptions = [
+          "--border"
+        ];
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        fileWidgetOptions = [
+          "--preview 'bat -n --color=always --line-range :2000 {}'"
+        ];
+      };
+      thefuck = {
+        enable = true;
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableNushellIntegration = true;
+      };
       nh = {
         enable = true;
         flake = "/persist/nixos";
@@ -70,6 +119,18 @@ in {
       };
       git = {
         enable = true;
+        delta = {
+          enable = true;
+          options = {
+            decorations = {
+              commit-decoration-style = "bold yellow box ul";
+              file-decoration-style = "none";
+              file-style = "bold yellow ul";
+            };
+            features = "decorations";
+            whitespace-error-style = "22 reverse";
+          };
+        };
         userName = gitName;
         userEmail = gitEmail;
         extraConfig = {
@@ -103,9 +164,6 @@ in {
       fish = {
         enable = true;
         interactiveShellInit = ''
-          starship init fish | source
-          thefuck --alias | source
-          jj util completion fish | source
           fzf_configure_bindings --processes=\cp
         '';
         functions = {
@@ -142,6 +200,10 @@ in {
             name = "fzf-fish";
             inherit (pkgs.fishPlugins.fzf-fish) src;
           }
+          {
+            name = "forgit";
+            inherit (pkgs.fishPlugins.forgit) src;
+          }
         ];
         shellAbbrs = {
           gco = "git checkout";
@@ -149,7 +211,7 @@ in {
           dnv = "devenv";
           transe = "trans -x 127.0.0.1:7897 en:zh ";
           transz = "trans -x 127.0.0.1:7897 zh:en ";
-          ls = "eza";
+          ls = "eza --color=always --long --no-filesize --git --icons=always --no-time --no-user --no-permissions";
           ll = "eza -l";
           la = "eza -l -a";
           lt = "eza -T";
@@ -166,6 +228,13 @@ in {
           ",j" = "just -f ~/.user.justfile --working-directory ~";
           jt = "just";
         };
+      };
+      starship = {
+        enable = true;
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableNushellIntegration = true;
+        enableTransience = true;
       };
       yt-dlp = {
         enable = true;

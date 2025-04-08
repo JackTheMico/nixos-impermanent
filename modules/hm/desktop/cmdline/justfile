@@ -21,3 +21,6 @@ path-exists PATH:
 clean:
   @just -f ~/.user.justfile path-exists "{{rm_theme}}"
   @just -f ~/.user.justfile path-exists "{{rm_conf_mimeapps}}"
+
+switcha: clean
+  nh os switch -a -H jackwy-desktop /persist/nixos/

@@ -1,7 +1,7 @@
 {moduleNameSpace, ...}: {
   inputs,
   config,
-  # userName,
+  userName,
   lib,
   ...
 }:
@@ -43,14 +43,14 @@ in {
       ];
     };
     # 挂载点目录权限配置
-    system.activationScripts.setupNutstore = ''
-      mkdir -p /mnt/nutstore
-      chmod 755 /mnt/nutstore
-    '';
     # system.activationScripts.setupNutstore = ''
     #   mkdir -p /mnt/nutstore
-    #   chown -R ${userName}:users /mnt/nutstore
     #   chmod 755 /mnt/nutstore
     # '';
+    system.activationScripts.setupNutstore = ''
+      mkdir -p /mnt/nutstore
+      chown -R ${userName}:users /mnt/nutstore
+      chmod 755 /mnt/nutstore
+    '';
   };
 }
