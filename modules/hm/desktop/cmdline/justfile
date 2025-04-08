@@ -19,5 +19,5 @@ path-exists PATH:
   fi
 
 clean:
-  @just path-exists "{{rm_theme}}"
-  @just path-exists "{{rm_conf_mimeapps}}"
+  @just -f ~/.user.justfile path-exists "{{rm_theme}}"
+  @just -f ~/.user.justfile path-exists "{{rm_conf_mimeapps}}"

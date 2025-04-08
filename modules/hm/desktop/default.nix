@@ -133,6 +133,7 @@ in {
         ".config/hyde"
         ".config/obsidian"
         ".config/discord"
+        ".config/musikcube"
         ".config/VSCodium"
         ".wakatime"
         ".mozilla"

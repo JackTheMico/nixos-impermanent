@@ -20,6 +20,7 @@ in {
         bat
         btop
         chezmoi
+        cachix
         delta
         fzf
         eza
@@ -33,16 +34,15 @@ in {
         lazygit
         lazyjj
         tuir
-        ytermusic
         dooit
         smassh
+        musikcube
         # -----
         just
         sops
         # spotdl # NOTE: not working
         mpv
         # youtube-tui # NOTE: not working
-        musikcube
         jq # JSON preview in yazi
         rich-cli # yazi rich-preview requires
         navi # Great cmd help tool
@@ -162,8 +162,8 @@ in {
           czi = "chezmoi";
           ns = "nix-search";
           wgete = "wget -e 'http-proxy=http:localhost:7897; https-proxy=http://localhost:7897' ";
-          ".j" = "just --justfile ~/.user.justfile --working-directory .";
-          ",j" = "just --justfile ~/.user.justfile --working-directory ~";
+          ".j" = "just -f ~/.user.justfile --working-directory .";
+          ",j" = "just -f ~/.user.justfile --working-directory ~";
           jt = "just";
         };
       };

@@ -139,15 +139,11 @@ in {
     # proxy.noProxy = "127.0.0.1,localhost,.localdomain";
   };
   nix = {
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" userName];
+    };
     optimise.automatic = true;
-
-    # NOTE: For devenv, uncomment this later after the installation
-    # extraOptions = ''
-    #   trusted-users = root jackwenyoung
-    #   extra-substituters = https://devenv.cachix.org
-    #   extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
-    # '';
   };
 
   services.openssh.enable = true;
@@ -231,7 +227,6 @@ in {
 
   programs = {
     fuse.userAllowOther = true;
-    fish.enable = true;
     clash-verge = {
       enable = true;
       autoStart = true;
@@ -282,6 +277,6 @@ in {
       "docker"
       "podman"
     ];
-    shell = pkgs.fish; # Change if you prefer a different shell
+    shell = pkgs.userPkgs.fish; # Change if you prefer a different shell
   };
 }
