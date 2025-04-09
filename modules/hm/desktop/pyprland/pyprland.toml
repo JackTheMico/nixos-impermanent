@@ -1,5 +1,5 @@
 [pyprland]
-plugins = ["scratchpads", "wallpapers"]
+plugins = ["scratchpads"]
 
 [scratchpads.wezterm]
 command = "wezterm start --class term_top"

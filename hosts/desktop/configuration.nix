@@ -135,8 +135,8 @@ in {
     # firewall.enable = false;
     networkmanager = {enable = true;};
     # NOTE: Require clash-verge-rev or another computer which has it.
-    # proxy.default = "http://127.0.0.1:7897";
-    # proxy.noProxy = "127.0.0.1,localhost,.localdomain";
+    proxy.default = "http://127.0.0.1:7897";
+    proxy.noProxy = "127.0.0.1,localhost,.localdomain";
   };
   nix = {
     settings = {
@@ -215,14 +215,15 @@ in {
         '';
       };
     };
+    # NOTE: I decide to use the system proxy because the timesync always fail.
     # nix-daemon proxy setting
-    services.nix-daemon.environment = {
-      # socks5h mean that the hostname is resolved by the SOCKS server
-      https_proxy = "socks5h://localhost:7897"; # I use clash-verge-rev
-      http_proxy = "socks5h://localhost:7897";
-      all_proxy = "socks5h://localhost:7897";
-      # https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
-    };
+    # services.nix-daemon.environment = {
+    #   # socks5h mean that the hostname is resolved by the SOCKS server
+    #   https_proxy = "socks5h://localhost:7897"; # I use clash-verge-rev
+    #   http_proxy = "socks5h://localhost:7897";
+    #   all_proxy = "socks5h://localhost:7897";
+    #   # https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
+    # };
   };
 
   programs = {

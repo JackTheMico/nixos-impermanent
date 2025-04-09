@@ -1,6 +1,7 @@
 {moduleNameSpace, ...}: {
   inputs,
   config,
+  userName,
   lib,
   ...
 }:
@@ -20,6 +21,12 @@ in {
         # "ssh_host_ed25519_key/private/nixos_jackwy_laptop" = {
         #   path = "/home/jackwenyoung/.ssh/id_nixos_jackwy_laptop";
         # };
+        "deepseek_apikey" = {
+          path = "/home/${userName}/.config/nvf/deepseek_apikey";
+        };
+        "gpg/jackwy-gmail/private" = {
+          path = "/home/${userName}/.gnupg/jackwy@gmail_sec.gpg";
+        };
         "gh_token" = {};
         "wakatime" = {};
         "imgur_client_id" = {};
