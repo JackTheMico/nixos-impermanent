@@ -64,10 +64,10 @@ local config = {
   enable_wayland = true,
   enable_scroll_bar = true,
   window_padding = {
-    top = 2,
-    right = 2,
-    left = 2,
-    bottom = 0,
+    top = 8,
+    right = 8,
+    left = 8,
+    bottom = 5,
   },
 }
 workspace_switcher.apply_to_config(config)
