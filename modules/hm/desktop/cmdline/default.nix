@@ -17,8 +17,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs.userPkgs;
       [
-        btop
-        chezmoi
+        # chezmoi
         cachix
         exercism # https://exercism.org/tracks/elixir
         grc # I forget what this for.
@@ -76,6 +75,15 @@ in {
             };
             file = "Dracula.tmTheme";
           };
+        };
+      };
+      btop = {
+        enable = true;
+        settings = {
+          color_scheme = "dracula";
+          theme_background = true;
+          truecolor = true;
+          vim_keys = true;
         };
       };
       eza = {

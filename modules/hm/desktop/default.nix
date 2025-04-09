@@ -66,6 +66,11 @@ in {
         force = true;
         mutable = true;
       };
+      ".config/hypr/keybindings.conf" = lib.mkForce {
+        source = ./hyde/hypr/keybindings.conf;
+        force = true;
+        mutable = true;
+      };
       ".config/hypr/monitors.conf" = lib.mkForce {
         source = ./hyde/hypr/monitors.conf;
         force = true;
@@ -182,6 +187,7 @@ in {
     (import ./qutebrowser.nix args)
     (import ./wezterm args)
     (import ./vscodium.nix args)
+    (import ./pyprland args)
   ];
   jackwyHMMods = {
     ssh = {
@@ -195,6 +201,7 @@ in {
     qutebrowser.enable = true;
     wezterm.enable = true;
     vscodium.enable = true;
+    pyprland.enable = true;
   };
 
   # hydenix home-manager options go here
