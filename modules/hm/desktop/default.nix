@@ -15,6 +15,26 @@ in {
   home = {
     # packages = with pkgs.userPkgs; [keepassxc obsidian];
     file = {
+      ".local/share/applications/codium-fcitx5.desktop".text = ''
+        [Desktop Entry]
+        Actions=new-empty-window
+        Categories=Utility;TextEditor;Development;IDE
+        Comment=Code Editing. Redefined.
+        Exec=codium --disable-gpu --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --enable-wayland-ime --unity-launch %F
+        GenericName=Text Editor
+        Icon=vscodium
+        Keywords=vscode
+        Name=VSCodium Fcitx5
+        StartupNotify=true
+        StartupWMClass=vscodium
+        Type=Application
+        Version=1.4
+
+        [Desktop Action new-empty-window]
+        Exec=codium --new-window %F
+        Icon=vscodium
+        Name=New Empty Window
+      '';
       ".local/share/applications/obsidian-fcitx5.desktop".text = ''
         [Desktop Entry]
         Categories=Office

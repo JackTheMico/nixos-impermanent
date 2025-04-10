@@ -20,6 +20,17 @@ in {
         "files.autoSave" = "on";
         "[nix]"."editor.tabSize" = 2;
         "[python]"."editor.tabSize" = 4;
+        "window" = {
+          "zoomLevel" = 2;
+          "titleBarStyle" = "custom";
+        };
+        "editor" = {
+          "fontFamily" = "'Maple Mono NF', 'JetBrains Mono', 'monospace'";
+          "fontSize" = 16;
+          "lineHeight" = 24; # 行高(px)
+          "fontLigatures" = true;
+        };
+        "terminal.integrated.fontSize" = 14;
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
@@ -34,6 +45,7 @@ in {
           "git diff"
           "git show"
         ];
+        "workbench.colorTheme" = "Catppuccin Frappé";
       };
       extensions = with pkgs.userPkgs.vscode-extensions;
         [

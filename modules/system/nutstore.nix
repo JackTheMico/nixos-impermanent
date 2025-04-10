@@ -42,15 +42,11 @@ in {
         "rw" # read and write
       ];
     };
+    # NOTE: Need to run chown -R ${userName} manually to give the writable access
     # 挂载点目录权限配置
     system.activationScripts.setupNutstore = ''
       mkdir -p /mnt/nutstore
       chmod 755 /mnt/nutstore
     '';
-    # system.activationScripts.setupNutstore = ''
-    #   mkdir -p /mnt/nutstore
-    #   chown -R ${userName}:users /mnt/nutstore
-    #   chmod 755 /mnt/nutstore
-    # '';
   };
 }
