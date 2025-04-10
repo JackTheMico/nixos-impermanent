@@ -136,11 +136,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1743476936,
-        "narHash": "sha256-2x/xL2IaeqP9wDMD6gNojh8cT2fyd6p95OXL1VzYjbI=",
+        "lastModified": 1744258337,
+        "narHash": "sha256-jAblpI+yuWSK64XFZZ4f9Zcoz6uQvB5yMx2OWyGdjiA=",
         "owner": "JackTheMico",
         "repo": "jackwy-nvf",
-        "rev": "89d9aeaf68d300013e3458965eb172e72b5fd714",
+        "rev": "d9d6654e9ce7855ec8c97140275661c45021075c",
         "type": "github"
       },
       "original": {
