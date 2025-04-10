@@ -24,39 +24,41 @@ in {
           "asvetliakov.vscode-neovim" = 1;
         };
       };
-      extensions = with pkgs.userPkgs.vscode-extensions; [
-        # Neovim
-        asvetliakov.vscode-neovim
-        # Python
-        ms-python.python
-        ms-python.debugpy
-        ms-python.flake8
-        njpwerner.autodocstring
-        charliermarsh.ruff
-        cameron.vscode-pytest
-        # Nix
-        bbenoist.nix
-        kamadorueda.alejandra
-        # Vue
-        vue.volar
-        # vue.vscode-typescript-vue-plugin # NOTE: No longer need this.
-        # octref.vetur
-        # Astro
-        astro-build.astro-vscode
+      extensions = with pkgs.userPkgs.vscode-extensions;
+        [
+          # Neovim
+          asvetliakov.vscode-neovim
+          # Python
+          ms-python.python
+          ms-python.debugpy
+          ms-python.flake8
+          njpwerner.autodocstring
+          charliermarsh.ruff
+          cameron.vscode-pytest
+          # Nix
+          bbenoist.nix
+          kamadorueda.alejandra
+          # Vue
+          vue.volar
+          # vue.vscode-typescript-vue-plugin # NOTE: No longer need this.
+          # octref.vetur
+          # Astro
+          astro-build.astro-vscode
 
-        # Markdown
-        yzhang.markdown-all-in-one
-        # Themes
-        dracula-theme.theme-dracula
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
-        # Spell
-        yzhang.dictionary-completion
-        # Test
-        hbenl.vscode-test-explorer
-        cameron.vscode-pytest
-        twpayne.vscode-testscript
-      ];
+          # Markdown
+          yzhang.markdown-all-in-one
+          # Themes
+          dracula-theme.theme-dracula
+          catppuccin.catppuccin-vsc
+          catppuccin.catppuccin-vsc-icons
+          # Spell
+          yzhang.dictionary-completion
+          # Test
+          hbenl.vscode-test-explorer
+          cameron.vscode-pytest
+          twpayne.vscode-testscript
+        ]
+        ++ [pkgs.vscode-extensions.rooveterinaryinc.roo-cline];
     };
   };
 }
