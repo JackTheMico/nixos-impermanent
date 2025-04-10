@@ -27,6 +27,7 @@ in {
         qq
         wechat-uos
         obsidian
+        libreoffice-qt6-fresh
       ]
       ++ [pinnedZoomPkgs.zoom-us];
     programs = {

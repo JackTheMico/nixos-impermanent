@@ -23,6 +23,17 @@ in {
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
+        "http.proxy" = "http://localhost:7897";
+        "http.proxyStrictSSL" = false;
+        "https.proxy" = "http://localhost:7897";
+        "roo-cline.allowedCommands" = [
+          "npm test"
+          "npm install"
+          "tsc"
+          "git log"
+          "git diff"
+          "git show"
+        ];
       };
       extensions = with pkgs.userPkgs.vscode-extensions;
         [
@@ -38,6 +49,10 @@ in {
           # Nix
           bbenoist.nix
           kamadorueda.alejandra
+          # Just
+          nefrob.vscode-just-syntax
+          # Toml
+          bungcip.better-toml
           # Vue
           vue.volar
           # vue.vscode-typescript-vue-plugin # NOTE: No longer need this.
@@ -54,11 +69,12 @@ in {
           # Spell
           yzhang.dictionary-completion
           # Test
+          ms-vscode.test-adapter-converter
           hbenl.vscode-test-explorer
           cameron.vscode-pytest
           twpayne.vscode-testscript
         ]
-        ++ [pkgs.vscode-extensions.rooveterinaryinc.roo-cline];
+        ++ [pkgs.unstable.vscode-extensions.rooveterinaryinc.roo-cline];
     };
   };
 }

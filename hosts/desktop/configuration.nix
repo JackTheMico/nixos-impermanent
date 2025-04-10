@@ -20,6 +20,10 @@
           inherit (prev) system;
           config.allowUnfree = true;
         };
+        unstable = import inputs.nixpkgs-unstable {
+          inherit (final) system;
+          config.allowUnfree = true;
+        };
       })
     ];
   };

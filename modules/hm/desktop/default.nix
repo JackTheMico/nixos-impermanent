@@ -141,6 +141,7 @@ in {
         ".config/discord"
         ".config/musikcube"
         ".config/VSCodium"
+        ".config/libreoffice"
         ".wakatime"
         ".mozilla"
         ".musikcube"

@@ -4,12 +4,7 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    # nix-index-database
-    # nix-index-database = {
-    #   url = "github:nix-community/nix-index-database";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # Nixpkgs
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       # optional, not necessary for the module
