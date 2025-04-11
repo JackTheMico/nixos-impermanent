@@ -141,6 +141,7 @@ in {
         # ".local/share/hyprland" #NOTE: No need to persist,otherwise errors.
         ".local/share/qutebrowser"
         ".local/share/Trash"
+        ".local/share/pipx/venvs"
         ".local/share/systemd"
         ".local/share/wezterm"
         ".local/share/dooit"
@@ -193,6 +194,8 @@ in {
         ".cache/rofi-4.runcache"
         ".cache/rofi-entry-history.txt"
         ".cache/rofi3.druncache"
+        ".local/bin/cookiecutter"
+        ".local/bin/copier"
       ];
       allowOther = true;
     };
