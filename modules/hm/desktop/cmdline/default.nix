@@ -80,7 +80,7 @@ in {
       btop = {
         enable = true;
         settings = {
-          color_scheme = "dracula";
+          color_theme = "dracula";
           theme_background = true;
           truecolor = true;
           vim_keys = true;
