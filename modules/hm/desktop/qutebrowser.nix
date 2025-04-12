@@ -67,6 +67,8 @@ in {
         yhdm = "https://www.yinhuadm.vip/";
         mt = "https://metaso.cn";
         imgur = "https://imgur.com/";
+        ncloud = "https://n8n.io/";
+        nlocal = "http://localhost:5678/home/workflows";
       };
       settings = {
         auto_save.session = true;

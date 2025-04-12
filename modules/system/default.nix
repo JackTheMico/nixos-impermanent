@@ -52,5 +52,9 @@ in {
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
   ];
-  # ++ [inputs.jackwy-nvf.packages.${system}.default];
+
+  # NOTE: Mainly n8n settings
+  services.n8n = {
+    enable = true;
+  };
 }

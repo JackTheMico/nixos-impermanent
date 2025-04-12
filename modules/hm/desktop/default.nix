@@ -152,6 +152,7 @@ in {
         ".local/state/nvf"
         ".local/state/wireplumber"
         ".local/state/hyde"
+        ".config/github-copilot"
         ".config/lazygit"
         ".config/yazi/plugins"
         ".config/sops/age"
