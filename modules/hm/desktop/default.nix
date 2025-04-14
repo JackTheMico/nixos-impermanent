@@ -182,6 +182,8 @@ in {
         ".cache/swww"
         ".cache/starship"
         ".cache/lutris"
+        ".cache/umu"
+        ".cache/gstreamer-1.0"
         ".cache/qutebrowser"
         ".cache/dooit"
         ".cache/wezterm"
