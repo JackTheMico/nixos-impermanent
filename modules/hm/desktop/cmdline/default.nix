@@ -24,6 +24,7 @@ in {
         gh
         # gtrash
         ghostty
+        harlequin
         imgurbash2
         # TUI
         lazygit
