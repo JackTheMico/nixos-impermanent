@@ -67,8 +67,9 @@ in {
           bungcip.better-toml
           # Vue
           vue.volar
+          dbaeumer.vscode-eslint
+          esbenp.prettier-vscode
           # vue.vscode-typescript-vue-plugin # NOTE: No longer need this.
-          # octref.vetur
           # Astro
           astro-build.astro-vscode
 
