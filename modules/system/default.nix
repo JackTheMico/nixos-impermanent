@@ -15,6 +15,7 @@ in {
     (import ./docker.nix args)
     (import ./firefox.nix args)
     (import ./fonts.nix args)
+    (import ./gaming.nix args)
   ];
 
   jackwySystemMods = {
@@ -22,6 +23,7 @@ in {
     docker.enable = true;
     firefox.enable = true;
     fontProfiles.enable = true;
+    gaming.enable = true;
   };
 
   programs = {
