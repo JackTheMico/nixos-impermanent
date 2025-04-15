@@ -236,6 +236,8 @@ in {
           ".j" = "just -f ~/.user.justfile --working-directory .";
           ",j" = "just -f ~/.user.justfile --working-directory ~";
           jt = "just";
+          code = "codium --disable-gpu --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --enable-wayland-ime --unity-launch %F";
+          obsi = "obsidian --disable-gpu --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime %u";
         };
       };
       starship = {
