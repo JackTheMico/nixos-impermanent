@@ -31,9 +31,13 @@ in {
         lazyjj
         tuir
         dooit
-        smassh
+        # smassh # NOTE: Not working
         musikcube
         # -----
+        # Log enhance
+        tailspin
+        lnav
+        toolong
         just
         sops
         # spotdl # NOTE: not working
