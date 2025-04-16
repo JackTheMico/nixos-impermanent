@@ -49,6 +49,8 @@ in {
       };
       extensions = with pkgs.userPkgs.vscode-extensions;
         [
+          # General
+          editorconfig.editorconfig
           # Neovim
           asvetliakov.vscode-neovim
           # Python
