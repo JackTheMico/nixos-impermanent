@@ -37,7 +37,7 @@ in {
         # Log enhance
         tailspin
         lnav
-        toolong
+        # toolong # NOTE: Not working
         just
         sops
         # spotdl # NOTE: not working
