@@ -23,7 +23,7 @@ in {
     home.packages = with pkgs.userPkgs;
       [
         # freetube
-        # kdePackages.konsole
+        figma-linux
         keepassxc
         qq
         wechat-uos
