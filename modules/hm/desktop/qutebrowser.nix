@@ -31,6 +31,7 @@ in {
       };
       keyBindings = {
         normal = {
+          "td" = "config-cycle colors.webpage.darkmode.enable true false";
           "pw" = "spawn --userscript qute-keepassxc --key A30DF874D95E6029";
           "pt" = "spawn --userscript qute-keepassxc --key A30DF874D95E6029 --totp";
         };
