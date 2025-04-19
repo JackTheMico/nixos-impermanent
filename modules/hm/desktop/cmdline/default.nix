@@ -25,11 +25,12 @@ in {
         # gtrash
         ghostty
         harlequin
+        heroku
         imgurbash2
         # TUI
         lazygit
         lazyjj
-        tuir
+        # tuir # NOTE: Not working
         dooit
         # smassh # NOTE: Not working
         musikcube

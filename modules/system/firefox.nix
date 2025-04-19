@@ -29,7 +29,7 @@ in {
             (extension "surfingkeys_ff" "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}")
             (extension "tree-style-tab" "treestyletab@piro.sakura.ne.jp")
             (extension "ublock-origin" "uBlock0@raymondhill.net")
-            (extension "umatrix" "uMatrix@raymondhill.net")
+            # (extension "umatrix" "uMatrix@raymondhill.net") # Don't like this, somethimes make the google login fail.
             (extension "darkreader" "addon@darkreader.org")
             (extension "immersive-translate" "{5efceaa7-f3a2-4e59-a54b-85319448e305}")
             (extension "keepassxc-browser" "keepassxc-browser@keepassxc.org")

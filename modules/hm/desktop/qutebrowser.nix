@@ -52,6 +52,7 @@ in {
         uw = "https://www.upwork.com";
         nut = "https://www.jianguoyun.com/d/home#/";
         fl = "https://www.freelancer.com/";
+        fiv = "https://www.fiverr.com/";
         ho = "https://www.hackerone.com/";
         h101 = "https://www.hacker101.com/";
         bc = "https://www.bugcrowd.com/";
@@ -71,6 +72,7 @@ in {
         ncloud = "https://n8n.io/";
         nlocal = "http://localhost:5678/home/workflows";
         uxbaike = "https://www.uxbaike.com";
+        mgo = "https://mastergo.com";
       };
       settings = {
         auto_save.session = true;
