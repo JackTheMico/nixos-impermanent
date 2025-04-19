@@ -70,6 +70,7 @@ in {
         imgur = "https://imgur.com/";
         ncloud = "https://n8n.io/";
         nlocal = "http://localhost:5678/home/workflows";
+        uxbaike = "https://www.uxbaike.com";
       };
       settings = {
         auto_save.session = true;

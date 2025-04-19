@@ -1,4 +1,4 @@
 [waybar]
 font = "JetBrainsMono Nerd Font"
-scale=58                                # total scaling
+scale=48                                # total scaling
 # output = ["", ""]                     # Default monitor output for waybar
