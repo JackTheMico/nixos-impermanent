@@ -44,6 +44,7 @@ in {
     ripgrep
     fd
     starship
+    n8n
     inputs.jackwy-nvf.packages.${system}.default
     # hyprpm requires #NOTE: ✖ failed to install headers with error code 2 (Headers missing)
     # pkg-config
@@ -55,8 +56,12 @@ in {
     # pkgs.userPkgs.vscode - your personal nixpkgs version
   ];
 
-  # NOTE: Mainly n8n settings
-  services.n8n = {
-    enable = true;
-  };
+  # FIXME: Not working with /var/lib/n8n persist
+  # services.n8n = {
+  #   enable = true;
+  #   settings = {
+  #     "N8N_USER_FOLDER" = "/home/jackwy/Documents/n8n";
+  #     "HOME" = "/home/jackwy/Documents/n8n";
+  #   };
+  # };
 }

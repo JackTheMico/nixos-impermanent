@@ -30,6 +30,7 @@ in {
         # TUI
         lazygit
         lazyjj
+        typioca
         # tuir # NOTE: Not working
         dooit
         # smassh # NOTE: Not working

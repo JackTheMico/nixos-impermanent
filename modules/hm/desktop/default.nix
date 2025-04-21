@@ -149,6 +149,7 @@ in {
         ".gnupg"
         ".ssh"
         ".nixops"
+        ".n8n"
         ".local/state/lazygit"
         ".local/state/nvf"
         ".local/state/wireplumber"
@@ -180,6 +181,7 @@ in {
         ".cache/gstreamer-1.0"
         ".cache/qutebrowser"
         ".cache/dooit"
+        ".cache/n8n"
         ".cache/wezterm"
       ];
       files = [

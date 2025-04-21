@@ -51,5 +51,12 @@ in {
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    xdg.configFile = {
+      "containers/containers.conf".text = ''
+        [containers]
+        http_proxy = true
+        env = ["http_proxy=http://127.0.0.1:7897", "https_proxy=http://127.0.0.1:7897"]
+      '';
+    };
   };
 }
