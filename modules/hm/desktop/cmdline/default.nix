@@ -24,10 +24,10 @@ in {
         gh
         # gtrash
         ghostty
-        harlequin
-        heroku
         imgurbash2
         # TUI
+        harlequin
+        pgcli
         lazygit
         lazyjj
         typioca
@@ -35,7 +35,7 @@ in {
         dooit
         # smassh # NOTE: Not working
         musikcube
-        # -----
+        # ----- end of TUI
         # Log enhance
         tailspin
         lnav
