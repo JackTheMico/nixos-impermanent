@@ -73,6 +73,7 @@ in {
         nlocal = "http://localhost:5678/home/workflows";
         uxbaike = "https://www.uxbaike.com";
         mgo = "https://mastergo.com";
+        gitlab = "https://gitlab.cn";
       };
       settings = {
         auto_save.session = true;

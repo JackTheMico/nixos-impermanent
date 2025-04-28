@@ -30,7 +30,11 @@ in {
           host = "gitee.com";
           hostname = "ssh.gitee.com";
           identityFile = cfg.giteeIdentityFile;
-          # proxyCommand = "nc -X connect -x 127.0.0.1:7897 %h %p";
+        };
+        "jihulab" = {
+          host = "jihulab.com";
+          hostname = "altssh.jihulab.com";
+          identityFile = cfg.giteeIdentityFile;
         };
       };
     };
