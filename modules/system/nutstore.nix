@@ -45,8 +45,8 @@ in {
     # 挂载点目录权限配置
     system.activationScripts.setupNutstore = ''
       mkdir -p /mnt/nutstore
-      chown -R ${userName}:users /mnt/nutstore/keepass
-      chmod 755 /mnt/nutstore
+      chown -R ${userName} /mnt/nutstore
+      chmod -R 777 /mnt/nutstore
     '';
   };
 }

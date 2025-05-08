@@ -33,7 +33,6 @@ in {
         };
         "jihulab" = {
           host = "jihulab.com";
-          hostname = "altssh.jihulab.com";
           identityFile = cfg.giteeIdentityFile;
         };
       };
