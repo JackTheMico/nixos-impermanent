@@ -96,6 +96,10 @@ in {
         force = true;
         mutable = false;
       };
+      ".config/nvim" = lib.mkForce {
+        source = ./lazyvim;
+        recursive = true;
+      };
     };
 
     stateVersion = "25.05"; # Please read the comment before changing.
@@ -133,6 +137,7 @@ in {
         ".local/share/heroku"
         ".local/share/vulkan"
         ".local/share/navi"
+        ".local/share/nvim"
         # ".local/share/applications/wine"
         # ".local/share/rofi" #NOTE: No need to persist,otherwise errors.
         ".local/share/dolphin"
@@ -152,6 +157,7 @@ in {
         ".n8n"
         ".local/state/lazygit"
         ".local/state/nvf"
+        ".local/state/nvim"
         ".local/state/wireplumber"
         ".local/state/hyde"
         ".config/github-copilot"
@@ -182,6 +188,7 @@ in {
         ".cache/qutebrowser"
         ".cache/dooit"
         ".cache/n8n"
+        ".cache/nvim"
         ".cache/wezterm"
       ];
       files = [

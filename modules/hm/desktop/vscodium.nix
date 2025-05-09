@@ -29,6 +29,7 @@ in {
           "fontSize" = 16;
           "lineHeight" = 24; # 行高(px)
           "fontLigatures" = true;
+          "lineNumbers" = "relative";
         };
         "terminal.integrated.fontSize" = 14;
         "extensions.experimental.affinity" = {
